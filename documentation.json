@@ -498,6 +498,14 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "CreateAccount",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                "type": "",
+                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n        <app-auth-form>\r\n            <h3>Create Account</h3>\r\n        </app-auth-form>\r\n    </div>\r\n  `,\r\n})"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -554,20 +562,20 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Login",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                "type": "",
+                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n        <app-auth-form>\r\n            <h3>Login</h3>\r\n        </app-auth-form>\r\n    </div>\r\n  `,\r\n})"
+            },
+            {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
-                "type": "",
-                "defaultValue": "() => ({\r\n  template: `\r\n    <app-auth-form>\r\n        <h3>Create Account</h3>\r\n    </app-auth-form>\r\n  `,\r\n})"
             },
             {
                 "name": "require",
@@ -652,6 +660,40 @@
                     "subtype": "variable",
                     "file": "src/test.ts",
                     "type": "literal type"
+                }
+            ],
+            "src/app/sec01-content-projection/auth-form/auth-form.stories.ts": [
+                {
+                    "name": "CreateAccount",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n        <app-auth-form>\r\n            <h3>Create Account</h3>\r\n        </app-auth-form>\r\n    </div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "Login",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                    "type": "",
+                    "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n        <app-auth-form>\r\n            <h3>Login</h3>\r\n        </app-auth-form>\r\n    </div>\r\n  `,\r\n})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                    "type": "Story<AuthFormComponent>",
+                    "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
+                },
+                {
+                    "name": "TemplateBindExample",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -767,32 +809,6 @@
                     "type": "Story<Page>",
                     "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
                 }
-            ],
-            "src/app/sec01-content-projection/auth-form/auth-form.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
-                    "type": "",
-                    "defaultValue": "() => ({\r\n  template: `\r\n    <app-auth-form>\r\n        <h3>Create Account</h3>\r\n    </app-auth-form>\r\n  `,\r\n})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
-                    "type": "Story<AuthFormComponent>",
-                    "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
-                },
-                {
-                    "name": "TemplateBindExample",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                }
             ]
         },
         "groupedFunctions": {},
@@ -849,7 +865,17 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "CreateAccount",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Login",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

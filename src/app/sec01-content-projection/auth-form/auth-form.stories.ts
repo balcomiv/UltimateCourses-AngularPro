@@ -20,11 +20,21 @@ const Template: Story<AuthFormComponent> = (args: AuthFormComponent) => ({
   props: args,
 });
 
-export const Primary = () => ({
+export const CreateAccount = () => ({
   template: `
     <div class="app-root">
         <app-auth-form>
             <h3>Create Account</h3>
+        </app-auth-form>
+    </div>
+  `,
+});
+
+export const Login = () => ({
+  template: `
+    <div class="app-root">
+        <app-auth-form>
+            <h3>Login</h3>
         </app-auth-form>
     </div>
   `,
