@@ -8,15 +8,15 @@
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  -webkit-font-smoothing: antialiased;
-  color: #545e6f;
-}
+// html,
+// body {
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+//   background: #fff;
+//   -webkit-font-smoothing: antialiased;
+//   color: #545e6f;
+// }
 
 img {
   vertical-align: bottom;
@@ -92,9 +92,23 @@ app-root,
   box-shadow: 0 1px 4px rgba(53, 60, 72, 0.1);
   padding: 30px 0;
 }
-app-root > div {
-  display: flex;
+
+// app-root,
+// .app-root > div {
+//   display: flex;
+// }
+
+app-root,
+.app-root {
+  > div {
+    display: flex;
+  }
 }
+
+.verticalLine {
+  border-left: 1px solid #dce5f2;
+}
+
 form {
   flex: 1 0;
   padding: 0 40px;

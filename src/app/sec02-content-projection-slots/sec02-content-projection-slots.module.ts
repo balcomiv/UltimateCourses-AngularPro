@@ -6,5 +6,6 @@ import { AuthFormComponent } from './auth-form/auth-form.component';
 @NgModule({
   declarations: [AuthFormComponent],
   imports: [CommonModule, FormsModule],
+  exports: [AuthFormComponent],
 })
-export class Sec01ContentProjectionModule {}
+export class Sec02ContentProjectionSlotsModule {}
