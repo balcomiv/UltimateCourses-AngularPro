@@ -44,6 +44,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - [Github Code](https://github.com/ultimatecourses/angular-pro-src/blob/master)
 
+## Storybook Links
+
+- [Actions Help](https://storybook.js.org/docs/angular/essentials/actions)
+
 ## Story Schematics Link
 
 <!-- - [ngx-schematics-for-storybook](https://github.com/kimamula/ngx-schematics-for-storybook)
