@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { action } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
 import { AuthFormComponent } from './auth-form.component';
+import { AuthRememberComponent } from './auth-remember.component';
 
 export default {
   title: 'Ultimate Angular/03 Projecting and Binding to Components',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({
-      declarations: [AuthFormComponent],
+      declarations: [AuthFormComponent, AuthRememberComponent],
       imports: [CommonModule, FormsModule],
     }),
   ],
@@ -33,8 +35,11 @@ export const Login = () => ({
 
         <div class="verticalLine"></div>
 
-        <app-auth-form>
+        <app-auth-form (submitted)="onSubmit($event)">
           <h3>Login</h3>
+          <app-auth-remember
+            (checked)="onChecked($event)">
+          </app-auth-remember>
           <button type="submit">
             Login
           </button>
@@ -42,4 +47,8 @@ export const Login = () => ({
       <div>
     </div>
   `,
+  props: {
+    onChecked: action('onChecked'),
+    onSubmit: action('onSubmit'),
+  },
 });
