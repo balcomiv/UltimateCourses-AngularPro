@@ -18,9 +18,29 @@
 
   "Print to console": {
     "scope": "javascript,typescript",
-    "prefix": "story-skeleton",
+    "prefix": "sb-skeleton",
     "body": [
-      "import { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\nimport { moduleMetadata } from '@storybook/angular';\nimport { Meta, Story } from '@storybook/angular/types-6-0';\n\nexport default {\ntitle: 'Ultimate Angular/03 Projecting and Binding to Components',\ncomponent: $1,\ndecorators: [\nmoduleMetadata({\ndeclarations: [$2],\nimports: [CommonModule, FormsModule],\n}),\n],\n} as Meta;\n\nexport const StoryWorks = () => ({\ntemplate: `\n\t<div>Story Works!</div>\n`,\n});",
+      "import { CommonModule } from '@angular/common';",
+      "import { FormsModule } from '@angular/forms';",
+      "import { moduleMetadata } from '@storybook/angular';",
+      "import { Meta, Story } from '@storybook/angular/types-6-0';",
+      "",
+      "export default {",
+      "title: 'Ultimate Angular/03 Projecting and Binding to Components',",
+      "component: $1,",
+      "decorators: [",
+      " moduleMetadata({",
+      "   declarations: [$2],",
+      "   imports: [CommonModule, FormsModule],",
+      " }),",
+      "],",
+      "} as Meta;",
+      "",
+      "export const StoryWorks = () => ({",
+      " template: `",
+      "   <div>Story Works!</div>",
+      "`",
+      "});",
       "$3"
     ],
     "description": "Log output to console"
