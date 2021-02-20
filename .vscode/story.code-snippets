@@ -36,7 +36,7 @@
       "],",
       "} as Meta;",
       "",
-      "export const StoryWorks = () => ({",
+      "export const WithTemplate: Story = () => ({",
       " template: `",
       "   <div>Story Works!</div>",
       "`",
