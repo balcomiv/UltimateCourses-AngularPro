@@ -1,1 +1,14 @@
-<p>auth-form works!</p>
+<div>
+  <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+    <ng-content select="h3"></ng-content>
+    <label for="email">
+      Email Address
+      <input type="text" />
+    </label>
+    <label for="password ">
+      Password
+      <input type="text" />
+    </label>
+    <ng-content select="button"></ng-content>
+  </form>
+</div>

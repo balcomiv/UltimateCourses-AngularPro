@@ -38,6 +38,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - [Ultimate Angular - Pro](https://app.ultimatecourses.com/course/angular-pro/using-ng-content-with-projection-slots)
 
+- [Github Code](https://github.com/ultimatecourses/angular-pro-src/blob/master)
+
 ## Story Schematics Link
 
 <!-- - [ngx-schematics-for-storybook](https://github.com/kimamula/ngx-schematics-for-storybook)

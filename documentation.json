@@ -242,7 +242,7 @@
         },
         {
             "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-c478e26dca6502d90e3c6f91b829eac7-2",
+            "id": "component-AuthFormComponent-6b136655a91c0d8f9e21c3cab61836e4-2",
             "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -257,16 +257,37 @@
             ],
             "viewProviders": [],
             "inputsClass": [],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 10,
+                    "type": "EventEmitter"
+                }
+            ],
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "ngOnInit",
-                    "args": [],
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 13
+                    "line": 12,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "hostBindings": [],
@@ -274,23 +295,14 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [\n  ]\n})\nexport class AuthFormComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\nimport { User } from '../../sec01-content-projection/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent {\n  @Output() submitted = new EventEmitter<User>();\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 9
-            },
-            "implements": [
-                "OnInit"
-            ],
             "isDuplicate": true,
             "duplicateId": 2,
             "duplicateName": "AuthFormComponent-2",
-            "templateData": "<p>auth-form works!</p>\n"
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" />\n    </label>\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
         },
         {
             "name": "ButtonComponent",

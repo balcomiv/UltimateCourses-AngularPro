@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { User } from '../../sec01-content-projection/user';
 
 @Component({
   selector: 'app-auth-form',
   templateUrl: './auth-form.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class AuthFormComponent implements OnInit {
+export class AuthFormComponent {
+  @Output() submitted = new EventEmitter<User>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onSubmit(value: User): void {
+    this.submitted.emit(value);
   }
-
 }
