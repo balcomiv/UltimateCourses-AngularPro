@@ -37,3 +37,18 @@ export const WithTemplate: Story = () => ({
     onChecked: action('onChecked'),
   },
 });
+
+const TemplateTwo: Story<AuthRememberComponent> = (
+  args: AuthRememberComponent
+) => ({
+  template: `
+    <app-auth-remember"></app-auth-remember>
+  `,
+  props: args,
+});
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  //   primary: true,
+  //   label: 'Button',
+};

@@ -17,12 +17,7 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<AuthFormComponent> = (args: AuthFormComponent) => ({
-  component: AuthFormComponent,
-  props: args,
-});
-
-export const Login = () => ({
+export const Login: Story = () => ({
   template: `
     <div class="app-root">
       <div>
