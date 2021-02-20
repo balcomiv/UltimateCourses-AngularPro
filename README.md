@@ -37,3 +37,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Course Link
 
 - [Ultimate Angular - Pro](https://app.ultimatecourses.com/course/angular-pro/using-ng-content-with-projection-slots)
+
+## Story Schematics Link
+
+<!-- - [ngx-schematics-for-storybook](https://github.com/kimamula/ngx-schematics-for-storybook)
+
+- `npm i ngx-schematics-for-storybook @storybook/cli --save-dev`
+- `ng generate ngx-schematics-for-storybook:component foo` -->
+
+<!-- ./node_modules/@angular-devkit/schematics/collection-schema.json -->
