@@ -26,6 +26,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
+## Helpful Commands
+
+- `ng g c sec03-projecting-and-binding-to-components/auth-form -s --skip-tests`
+
+- `ng g class sec03-projecting-and-binding-to-components/auth-form/auth-form --skip-tests --type stories`
+
 # Links
 
 ## Course Link
