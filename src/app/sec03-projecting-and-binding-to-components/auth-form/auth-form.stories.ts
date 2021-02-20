@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { action } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
+import { User } from '../../sec01-content-projection/user';
 import { AuthFormComponent } from './auth-form.component';
 import { AuthRememberComponent } from './auth-remember.component';
 
@@ -44,6 +45,8 @@ export const Login: Story = () => ({
   `,
   props: {
     onChecked: action('onChecked'),
-    onSubmit: action('onSubmit'),
+    onSubmit: (e: User) => {
+      console.log('Login', e);
+    },
   },
 });
