@@ -36,7 +36,7 @@ export const Login = () => ({
         <app-auth-form>
           <h3>Login</h3>
           <button type="submit">
-            Join us
+            Login
           </button>
         </app-auth-form>
       <div>

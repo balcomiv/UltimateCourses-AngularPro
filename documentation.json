@@ -72,7 +72,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-0469720cec9bf23084fc664140b11ca5",
+            "id": "component-AppComponent-5f005e078622ee88e22eaaee57be9653",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -106,7 +106,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'UltimateCourses-AngularPro';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'UltimateCourses-AngularPro';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -115,70 +115,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div>\n  <app-auth-form>\n    <h3>Create Account</h3>\n    <button type=\"submit\">\n      Join us\n    </button>\n  </app-auth-form>\n  <app-auth-form>\n    <h3>Login</h3>\n    <button type=\"submit\">\n      Join us\n    </button>\n  </app-auth-form>\n</div>\n"
+            "templateData": "<div>\n  <app-auth-form>\n    <h3>Create Account</h3>\n    <button type=\"submit\">\n      Join us\n    </button>\n  </app-auth-form>\n\n  <div class=\"verticalLine\"></div>\n\n  <app-auth-form>\n    <h3>Login</h3>\n    <button type=\"submit\">\n      Join us\n    </button>\n  </app-auth-form>\n</div>\n"
         },
         {
             "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-a535a1aa46e12245ed36001951bca404",
-            "file": "src/app/sec01-content-projection/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" />\n    </label>\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 25,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 27,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\nimport { User } from '../user';\n\n@Component({\n  selector: 'app-auth-form',\n  template: `\n    <div>\n      <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n        <ng-content></ng-content>\n        <label for=\"email\">\n          Email Address\n          <input type=\"text\" />\n        </label>\n        <label for=\"password \">\n          Password\n          <input type=\"text\" />\n        </label>\n        <button type=\"submit\">Submit</button>\n      </form>\n    </div>\n  `,\n  styles: [],\n})\nexport class AuthFormComponent {\n  @Output() submitted = new EventEmitter<User>();\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": ""
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-6b136655a91c0d8f9e21c3cab61836e4-1",
+            "id": "component-AuthFormComponent-6b136655a91c0d8f9e21c3cab61836e4",
             "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -235,10 +176,69 @@
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content selector=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" />\n    </label>\n    <ng-content selector=\"button\"></ng-content>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-a535a1aa46e12245ed36001951bca404-1",
+            "file": "src/app/sec01-content-projection/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" />\n    </label>\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 25,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\nimport { User } from '../user';\n\n@Component({\n  selector: 'app-auth-form',\n  template: `\n    <div>\n      <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n        <ng-content></ng-content>\n        <label for=\"email\">\n          Email Address\n          <input type=\"text\" />\n        </label>\n        <label for=\"password \">\n          Password\n          <input type=\"text\" />\n        </label>\n        <button type=\"submit\">Submit</button>\n      </form>\n    </div>\n  `,\n  styles: [],\n})\nexport class AuthFormComponent {\n  @Output() submitted = new EventEmitter<User>();\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
             "isDuplicate": true,
             "duplicateId": 1,
-            "duplicateName": "AuthFormComponent-1",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" />\n    </label>\n    <button type=\"submit\">Submit</button>\n  </form>\n</div>\n"
+            "duplicateName": "AuthFormComponent-1"
         },
         {
             "name": "ButtonComponent",
@@ -529,11 +529,7 @@
                 },
                 {
                     "type": "declarations",
-                    "elements": [
-                        {
-                            "name": "AuthFormComponent"
-                        }
-                    ]
+                    "elements": []
                 },
                 {
                     "type": "imports",
@@ -562,7 +558,11 @@
                 },
                 {
                     "type": "declarations",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "AuthFormComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "imports",
@@ -570,7 +570,11 @@
                 },
                 {
                     "type": "exports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "AuthFormComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -661,17 +665,17 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n        <app-auth-form>\r\n            <h3>Login</h3>\r\n        </app-auth-form>\r\n    </div>\r\n  `,\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n      <div>\r\n        <app-auth-form>\r\n          <h3>Create Account</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n\r\n        <div class=\"verticalLine\"></div>\r\n\r\n        <app-auth-form>\r\n          <h3>Login</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n      <div>\r\n    </div>\r\n  `,\r\n})"
             },
             {
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
                 "type": "",
-                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n      <div>\r\n        <app-auth-form>\r\n          <h3>Create Account</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n        <app-auth-form>\r\n          <h3>Login</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n      <div>\r\n    </div>\r\n  `,\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n        <app-auth-form>\r\n            <h3>Login</h3>\r\n        </app-auth-form>\r\n    </div>\r\n  `,\r\n})"
             },
             {
                 "name": "Primary",
@@ -732,7 +736,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
                 "type": "Story<AuthFormComponent>",
                 "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
             },
@@ -740,7 +744,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec01-content-projection/auth-form/auth-form.stories.ts",
                 "type": "Story<AuthFormComponent>",
                 "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
             },
@@ -929,7 +933,7 @@
                     "subtype": "variable",
                     "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
                     "type": "",
-                    "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n      <div>\r\n        <app-auth-form>\r\n          <h3>Create Account</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n        <app-auth-form>\r\n          <h3>Login</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n      <div>\r\n    </div>\r\n  `,\r\n})"
+                    "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n      <div>\r\n        <app-auth-form>\r\n          <h3>Create Account</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n\r\n        <div class=\"verticalLine\"></div>\r\n\r\n        <app-auth-form>\r\n          <h3>Login</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n      <div>\r\n    </div>\r\n  `,\r\n})"
                 },
                 {
                     "name": "Template",
