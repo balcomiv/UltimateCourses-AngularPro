@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { User } from '../../sec01-content-projection/user';
+import { User } from '../../shared/user';
 
 @Component({
   selector: 'app-auth-form',

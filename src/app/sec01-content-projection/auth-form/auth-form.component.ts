@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { User } from '../user';
+import { User } from '../../shared/user';
 
 @Component({
   selector: 'app-auth-form',
