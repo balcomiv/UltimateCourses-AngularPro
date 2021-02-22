@@ -1,1 +1,28 @@
-<p>auth-form works!</p>
+<div>
+  <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+    <ng-content select="h3"></ng-content>
+    <label for="email">
+      Email Address
+      <input type="text" name="email" ngModel />
+    </label>
+    <label for="password ">
+      Password
+      <input type="text" name="password" ngModel />
+    </label>
+    <ng-content select="app-auth-remember"></ng-content>
+
+    <div *ngIf="showOne | async">
+      Show One!
+    </div>
+
+    <div *ngIf="showTwo | async">
+      Show Two!
+    </div>
+
+    <div *ngIf="showThree | async">
+      Show Three!
+    </div>
+
+    <ng-content select="button"></ng-content>
+  </form>
+</div>

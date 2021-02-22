@@ -6,6 +6,6 @@ import { AuthRememberComponent } from '../sec03-projecting-and-binding-to-compon
 @NgModule({
   declarations: [AuthRememberComponent],
   imports: [CommonModule, FormsModule],
-  exports: [AuthRememberComponent],
+  exports: [CommonModule, FormsModule, AuthRememberComponent],
 })
 export class SharedModule {}

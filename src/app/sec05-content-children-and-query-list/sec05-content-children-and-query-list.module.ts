@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 import { AuthFormComponent } from './auth-form/auth-form.component';
-
-
 
 @NgModule({
   declarations: [AuthFormComponent],
-  imports: [
-    CommonModule
-  ]
+  imports: [SharedModule],
 })
-export class Sec05ContentChildrenAndQueryListModule { }
+export class Sec05ContentChildrenAndQueryListModule {}
