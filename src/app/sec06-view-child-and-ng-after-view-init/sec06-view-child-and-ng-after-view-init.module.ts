@@ -5,5 +5,6 @@ import { AuthFormComponent } from './auth-form/auth-form.component';
 @NgModule({
   declarations: [AuthFormComponent],
   imports: [SharedModule],
+  exports: [SharedModule, AuthFormComponent],
 })
 export class Sec06ViewChildAndNgAfterViewInitModule {}

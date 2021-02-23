@@ -11,9 +11,10 @@
     </label>
     <ng-content select="app-auth-remember"></ng-content>
 
-    <div *ngIf="showMe | async">
-      Show One!
-    </div>
+    <app-auth-message
+      [style.display]="(showMessage | async) ? 'inherit' : 'none'"
+    >
+    </app-auth-message>
 
     <ng-content select="button"></ng-content>
   </form>
