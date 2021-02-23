@@ -50,7 +50,7 @@ export class AuthFormComponent
     // }
     // console.log(this.authMessage);
 
-    console.log(`Email: ${this.email}`);
+    console.log(`Email: `, this.email);
   }
 
   ngAfterContentInit(): void {

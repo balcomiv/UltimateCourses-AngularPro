@@ -179,7 +179,7 @@
         {
             "name": "AuthFormComponent",
             "id": "component-AuthFormComponent-71a3e2aeefce9a94b358b81156b7ee08-1",
-            "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.component.ts",
+            "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -238,12 +238,12 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "AuthFormComponent-1",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" />\n    </label>\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
         },
         {
             "name": "AuthFormComponent",
             "id": "component-AuthFormComponent-71a3e2aeefce9a94b358b81156b7ee08-2",
-            "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.component.ts",
+            "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -302,7 +302,7 @@
             "isDuplicate": true,
             "duplicateId": 2,
             "duplicateName": "AuthFormComponent-2",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" />\n    </label>\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
         },
         {
             "name": "AuthFormComponent",
@@ -648,151 +648,7 @@
         },
         {
             "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-691cf77e14e42e51199fc5849d738e91-6",
-            "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./auth-form.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 34,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "authMessage",
-                    "defaultValue": "null",
-                    "type": "AuthMessageComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 29,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
-                        }
-                    ]
-                },
-                {
-                    "name": "authRemember",
-                    "defaultValue": "null",
-                    "type": "AuthRememberComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 32,
-                    "decorators": [
-                        {
-                            "name": "ContentChild",
-                            "stringifiedArguments": "AuthRememberComponent"
-                        }
-                    ]
-                },
-                {
-                    "name": "email",
-                    "defaultValue": "null",
-                    "type": "ElementRef | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 26,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'email'"
-                        }
-                    ]
-                },
-                {
-                    "name": "showMessage",
-                    "defaultValue": "new Observable<boolean>()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 24
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngAfterContentInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 56
-                },
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 45
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 36
-                },
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 72,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    //  Note: This will cause 'expression changed after checked' error\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log(this.authMessage);\n\n    console.log(`Email: ${this.email}`);\n  }\n\n  ngAfterContentInit(): void {\n    //  console.log('===> ngAfterContentInit', this.authRemember);\n\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n\n    //  Note: This is null, even though Todd shows it working. Static?\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log('Auth Message: ', this.authMessage);\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "implements": [
-                "OnInit",
-                "AfterViewInit",
-                "AfterContentInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 6,
-            "duplicateName": "AuthFormComponent-6",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-453a6e81d51f48bb34720737159905fc-7",
+            "id": "component-AuthFormComponent-453a6e81d51f48bb34720737159905fc-6",
             "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -943,9 +799,153 @@
                 "AfterContentInit"
             ],
             "isDuplicate": true,
+            "duplicateId": 6,
+            "duplicateName": "AuthFormComponent-6",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showOne | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showTwo | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showThree | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-3f99ef2de40e1eaeae8bb9452c771979-7",
+            "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./auth-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 34,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "authMessage",
+                    "defaultValue": "null",
+                    "type": "AuthMessageComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
+                        }
+                    ]
+                },
+                {
+                    "name": "authRemember",
+                    "defaultValue": "null",
+                    "type": "AuthRememberComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "AuthRememberComponent"
+                        }
+                    ]
+                },
+                {
+                    "name": "email",
+                    "defaultValue": "null",
+                    "type": "ElementRef | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'email'"
+                        }
+                    ]
+                },
+                {
+                    "name": "showMessage",
+                    "defaultValue": "new Observable<boolean>()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 72,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    //  Note: This will cause 'expression changed after checked' error\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log(this.authMessage);\n\n    console.log(`Email: `, this.email);\n  }\n\n  ngAfterContentInit(): void {\n    //  console.log('===> ngAfterContentInit', this.authRemember);\n\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n\n    //  Note: This is null, even though Todd shows it working. Static?\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log('Auth Message: ', this.authMessage);\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "OnInit",
+                "AfterViewInit",
+                "AfterContentInit"
+            ],
+            "isDuplicate": true,
             "duplicateId": 7,
             "duplicateName": "AuthFormComponent-7",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showOne | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showTwo | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showThree | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
         },
         {
             "name": "AuthMessageComponent",
@@ -1722,17 +1722,17 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.stories.ts",
-                "type": "Story",
-                "defaultValue": "() => ({\n  template: `\n    <div class=\"app-root\">\n      <div>\n        <app-auth-form>\n          <h3>Create Account</h3>\n          <button type=\"submit\">\n            Join us\n          </button>\n        </app-auth-form>\n\n        <div class=\"verticalLine\"></div>\n\n        <app-auth-form (submitted)=\"onSubmit($event)\">\n          <h3>Login</h3>\n          <app-auth-remember\n            (checked)=\"onChecked($event)\">\n          </app-auth-remember>\n          <button type=\"submit\">\n            Login\n          </button>\n        </app-auth-form>\n      <div>\n    </div>\n  `,\n  props: {\n    onChecked: action('onChecked'),\n    onSubmit: (e: User) => {\n      console.log('Login', e);\n    },\n  },\n})"
+                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
+                "type": "",
+                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n      <div>\r\n        <app-auth-form>\r\n          <h3>Create Account</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n\r\n        <div class=\"verticalLine\"></div>\r\n\r\n        <app-auth-form>\r\n          <h3>Login</h3>\r\n          <button type=\"submit\">\r\n            Login\r\n          </button>\r\n        </app-auth-form>\r\n      <div>\r\n    </div>\r\n  `,\r\n})"
             },
             {
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
-                "type": "",
-                "defaultValue": "() => ({\r\n  template: `\r\n    <div class=\"app-root\">\r\n      <div>\r\n        <app-auth-form>\r\n          <h3>Create Account</h3>\r\n          <button type=\"submit\">\r\n            Join us\r\n          </button>\r\n        </app-auth-form>\r\n\r\n        <div class=\"verticalLine\"></div>\r\n\r\n        <app-auth-form>\r\n          <h3>Login</h3>\r\n          <button type=\"submit\">\r\n            Login\r\n          </button>\r\n        </app-auth-form>\r\n      <div>\r\n    </div>\r\n  `,\r\n})"
+                "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.stories.ts",
+                "type": "Story",
+                "defaultValue": "() => ({\n  template: `\n    <div class=\"app-root\">\n      <div>\n        <app-auth-form>\n          <h3>Create Account</h3>\n          <button type=\"submit\">\n            Join us\n          </button>\n        </app-auth-form>\n\n        <div class=\"verticalLine\"></div>\n\n        <app-auth-form (submitted)=\"onSubmit($event)\">\n          <h3>Login</h3>\n          <app-auth-remember\n            (checked)=\"onChecked($event)\">\n          </app-auth-remember>\n          <button type=\"submit\">\n            Login\n          </button>\n        </app-auth-form>\n      <div>\n    </div>\n  `,\n  props: {\n    onChecked: action('onChecked'),\n    onSubmit: (e: User) => {\n      console.log('Login', e);\n    },\n  },\n})"
             },
             {
                 "name": "Login",
@@ -1762,17 +1762,17 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
             {
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
             {
                 "name": "Primary",
@@ -1865,17 +1865,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-remember.stories.ts",
-                "type": "Story<AuthRememberComponent>",
-                "defaultValue": "(\r\n  args: AuthRememberComponent\r\n) => ({\r\n  component: AuthRememberComponent,\r\n  props: args,\r\n})"
+                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
+                "type": "Story<AuthFormComponent>",
+                "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
-                "type": "Story<AuthFormComponent>",
-                "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
+                "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-remember.stories.ts",
+                "type": "Story<AuthRememberComponent>",
+                "defaultValue": "(\r\n  args: AuthRememberComponent\r\n) => ({\r\n  component: AuthRememberComponent,\r\n  props: args,\r\n})"
             },
             {
                 "name": "Template",
@@ -2063,16 +2063,6 @@
                     "defaultValue": "(args: Page) => ({\n  component: Page,\n  props: args,\n})"
                 }
             ],
-            "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.stories.ts": [
-                {
-                    "name": "Login",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\n  template: `\n    <div class=\"app-root\">\n      <div>\n        <app-auth-form>\n          <h3>Create Account</h3>\n          <button type=\"submit\">\n            Join us\n          </button>\n        </app-auth-form>\n\n        <div class=\"verticalLine\"></div>\n\n        <app-auth-form (submitted)=\"onSubmit($event)\">\n          <h3>Login</h3>\n          <app-auth-remember\n            (checked)=\"onChecked($event)\">\n          </app-auth-remember>\n          <button type=\"submit\">\n            Login\n          </button>\n        </app-auth-form>\n      <div>\n    </div>\n  `,\n  props: {\n    onChecked: action('onChecked'),\n    onSubmit: (e: User) => {\n      console.log('Login', e);\n    },\n  },\n})"
-                }
-            ],
             "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts": [
                 {
                     "name": "Login",
@@ -2089,6 +2079,16 @@
                     "file": "src/app/sec02-content-projection-slots/auth-form/auth-form.stories.ts",
                     "type": "Story<AuthFormComponent>",
                     "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
+                }
+            ],
+            "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.stories.ts": [
+                {
+                    "name": "Login",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-form.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\n  template: `\n    <div class=\"app-root\">\n      <div>\n        <app-auth-form>\n          <h3>Create Account</h3>\n          <button type=\"submit\">\n            Join us\n          </button>\n        </app-auth-form>\n\n        <div class=\"verticalLine\"></div>\n\n        <app-auth-form (submitted)=\"onSubmit($event)\">\n          <h3>Login</h3>\n          <app-auth-remember\n            (checked)=\"onChecked($event)\">\n          </app-auth-remember>\n          <button type=\"submit\">\n            Login\n          </button>\n        </app-auth-form>\n      <div>\n    </div>\n  `,\n  props: {\n    onChecked: action('onChecked'),\n    onSubmit: (e: User) => {\n      console.log('Login', e);\n    },\n  },\n})"
                 }
             ],
             "src/app/sec04-content-child-and-ng-after-content-init/auth-form/auth-form.stories.ts": [
@@ -2121,16 +2121,6 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
-            "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts": [
-                {
-                    "name": "Login",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
-                }
-            ],
             "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts": [
                 {
                     "name": "Login",
@@ -2139,6 +2129,16 @@
                     "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                }
+            ],
+            "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts": [
+                {
+                    "name": "Login",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
             "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-remember.stories.ts": [
