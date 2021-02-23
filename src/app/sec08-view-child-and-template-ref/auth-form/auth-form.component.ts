@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   Component,
   ContentChild,
+  ElementRef,
   EventEmitter,
   OnInit,
   Output,
@@ -21,6 +22,8 @@ import { User } from '../../shared/user';
 export class AuthFormComponent
   implements OnInit, AfterViewInit, AfterContentInit {
   showMessage = new Observable<boolean>();
+
+  @ViewChild('email') email: ElementRef | null = null;
 
   @ViewChild(AuthMessageComponent, { static: true })
   authMessage: AuthMessageComponent | null = null;
@@ -46,6 +49,8 @@ export class AuthFormComponent
     //   this.authMessage.days = 30;
     // }
     // console.log(this.authMessage);
+
+    console.log(`Email: ${this.email}`);
   }
 
   ngAfterContentInit(): void {

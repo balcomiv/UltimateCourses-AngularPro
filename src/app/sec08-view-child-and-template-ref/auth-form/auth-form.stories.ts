@@ -5,6 +5,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
 import { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';
 import { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';
+import { User } from '../../shared/user';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
