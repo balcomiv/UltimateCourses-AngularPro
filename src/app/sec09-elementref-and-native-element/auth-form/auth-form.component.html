@@ -1,0 +1,21 @@
+<div>
+  <form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
+    <ng-content select="h3"></ng-content>
+    <label for="email">
+      Email Address
+      <input type="text" name="email" ngModel #email />
+    </label>
+    <label for="password ">
+      Password
+      <input type="text" name="password" ngModel />
+    </label>
+    <ng-content select="app-auth-remember"></ng-content>
+
+    <app-auth-message
+      [style.display]="(showMessage | async) ? 'inherit' : 'none'"
+    >
+    </app-auth-message>
+
+    <ng-content select="button"></ng-content>
+  </form>
+</div>
