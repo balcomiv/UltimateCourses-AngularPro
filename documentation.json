@@ -684,151 +684,7 @@
         },
         {
             "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-3f99ef2de40e1eaeae8bb9452c771979-6",
-            "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./auth-form.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 34,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "authMessage",
-                    "defaultValue": "null",
-                    "type": "AuthMessageComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 29,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
-                        }
-                    ]
-                },
-                {
-                    "name": "authRemember",
-                    "defaultValue": "null",
-                    "type": "AuthRememberComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 32,
-                    "decorators": [
-                        {
-                            "name": "ContentChild",
-                            "stringifiedArguments": "AuthRememberComponent"
-                        }
-                    ]
-                },
-                {
-                    "name": "email",
-                    "defaultValue": "null",
-                    "type": "ElementRef | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 26,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'email'"
-                        }
-                    ]
-                },
-                {
-                    "name": "showMessage",
-                    "defaultValue": "new Observable<boolean>()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 24
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngAfterContentInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 56
-                },
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 45
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 36
-                },
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 72,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    //  Note: This will cause 'expression changed after checked' error\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log(this.authMessage);\n\n    console.log(`Email: `, this.email);\n  }\n\n  ngAfterContentInit(): void {\n    //  console.log('===> ngAfterContentInit', this.authRemember);\n\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n\n    //  Note: This is null, even though Todd shows it working. Static?\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log('Auth Message: ', this.authMessage);\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "implements": [
-                "OnInit",
-                "AfterViewInit",
-                "AfterContentInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 6,
-            "duplicateName": "AuthFormComponent-6",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-453a6e81d51f48bb34720737159905fc-7",
+            "id": "component-AuthFormComponent-453a6e81d51f48bb34720737159905fc-6",
             "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -979,14 +835,14 @@
                 "AfterContentInit"
             ],
             "isDuplicate": true,
-            "duplicateId": 7,
-            "duplicateName": "AuthFormComponent-7",
+            "duplicateId": 6,
+            "duplicateName": "AuthFormComponent-6",
             "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showOne | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showTwo | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showThree | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
         },
         {
             "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-12624ffb00618ca1a4d43cf0550fd610-8",
-            "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.component.ts",
+            "id": "component-AuthFormComponent-3f99ef2de40e1eaeae8bb9452c771979-7",
+            "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -1040,7 +896,7 @@
                 {
                     "name": "email",
                     "defaultValue": "null",
-                    "type": "ElementRef<HTMLInputElement> | null",
+                    "type": "ElementRef | null",
                     "optional": false,
                     "description": "",
                     "line": 26,
@@ -1067,7 +923,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 50
+                    "line": 56
                 },
                 {
                     "name": "ngAfterViewInit",
@@ -1096,7 +952,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 72,
                     "jsdoctags": [
                         {
                             "name": "value",
@@ -1113,10 +969,156 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef<HTMLInputElement> | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access authMessage ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    console.log(`Email: `, this.email);\n    this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');\n  }\n\n  ngAfterContentInit(): void {\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    //  Note: This will cause 'expression changed after checked' error\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log(this.authMessage);\n\n    console.log(`Email: `, this.email);\n  }\n\n  ngAfterContentInit(): void {\n    //  console.log('===> ngAfterContentInit', this.authRemember);\n\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n\n    //  Note: This is null, even though Todd shows it working. Static?\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log('Auth Message: ', this.authMessage);\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "implements": [
+                "OnInit",
+                "AfterViewInit",
+                "AfterContentInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 7,
+            "duplicateName": "AuthFormComponent-7",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-5a524bc2a875eccf2a8e5d879a3f7042-8",
+            "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [
+                "\n      .email {\n        border-color: #9f72e6;\n      }\n    "
+            ],
+            "templateUrl": [
+                "./auth-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 40,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "authMessage",
+                    "defaultValue": "null",
+                    "type": "AuthMessageComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 35,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
+                        }
+                    ]
+                },
+                {
+                    "name": "authRemember",
+                    "defaultValue": "null",
+                    "type": "AuthRememberComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 38,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "AuthRememberComponent"
+                        }
+                    ]
+                },
+                {
+                    "name": "email",
+                    "defaultValue": "null",
+                    "type": "ElementRef<HTMLInputElement> | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'email'"
+                        }
+                    ]
+                },
+                {
+                    "name": "showMessage",
+                    "defaultValue": "new Observable<boolean>()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 58
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 51
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [\n    `\n      .email {\n        border-color: #9f72e6;\n      }\n    `,\n  ],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef<HTMLInputElement> | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access authMessage ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    console.log(`Email: `, this.email);\n    this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');\n    this.email?.nativeElement.classList.add('email');\n    this.email?.nativeElement.focus();\n  }\n\n  ngAfterContentInit(): void {\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .email {\n        border-color: #9f72e6;\n      }\n    \n",
             "implements": [
                 "OnInit",
                 "AfterViewInit",
@@ -1987,17 +1989,17 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
             {
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
             {
                 "name": "Login",
@@ -2354,16 +2356,6 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
-            "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts": [
-                {
-                    "name": "Login",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
-                }
-            ],
             "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts": [
                 {
                     "name": "Login",
@@ -2372,6 +2364,16 @@
                     "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                }
+            ],
+            "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts": [
+                {
+                    "name": "Login",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
             "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.stories.ts": [

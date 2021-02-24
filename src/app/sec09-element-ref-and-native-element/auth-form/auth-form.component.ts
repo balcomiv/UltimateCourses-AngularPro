@@ -17,7 +17,13 @@ import { User } from '../../shared/user';
 @Component({
   selector: 'app-auth-form',
   templateUrl: './auth-form.component.html',
-  styles: [],
+  styles: [
+    `
+      .email {
+        border-color: #9f72e6;
+      }
+    `,
+  ],
 })
 export class AuthFormComponent
   implements OnInit, AfterViewInit, AfterContentInit {
@@ -45,6 +51,8 @@ export class AuthFormComponent
   ngAfterViewInit(): void {
     console.log(`Email: `, this.email);
     this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');
+    this.email?.nativeElement.classList.add('email');
+    this.email?.nativeElement.focus();
   }
 
   ngAfterContentInit(): void {
