@@ -27,15 +27,6 @@ export const Login: Story = () => ({
   template: `
       <div class="app-root">
         <div>
-          <app-auth-form>
-            <h3>Create Account</h3>
-            <button type="submit">
-              Join us
-            </button>
-          </app-auth-form>
-
-          <div class="verticalLine"></div>
-
           <app-auth-form (submitted)="onSubmit($event)">
             <h3>Login</h3>
             <app-auth-remember

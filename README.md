@@ -56,3 +56,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - `ng generate ngx-schematics-for-storybook:component foo` -->
 
 <!-- ./node_modules/@angular-devkit/schematics/collection-schema.json -->
+
+## Links to Look At
+
+- https://indepth.dev/posts/1198/angular-forms-story-strong-types

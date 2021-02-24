@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'UltimateCourses-AngularPro';
+  onSubmit(event: unknown): void {}
+  onChecked(event: unknown): void {}
 }

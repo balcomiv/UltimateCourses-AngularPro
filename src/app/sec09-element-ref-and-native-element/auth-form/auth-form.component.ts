@@ -23,7 +23,7 @@ export class AuthFormComponent
   implements OnInit, AfterViewInit, AfterContentInit {
   showMessage = new Observable<boolean>();
 
-  @ViewChild('email') email: ElementRef | null = null;
+  @ViewChild('email') email: ElementRef<HTMLInputElement> | null = null;
 
   @ViewChild(AuthMessageComponent, { static: true })
   authMessage: AuthMessageComponent | null = null;
@@ -34,7 +34,7 @@ export class AuthFormComponent
   @Output() submitted = new EventEmitter<User>();
 
   ngOnInit(): void {
-    //  Note: I can access ViewChild here because I made it { static: true }
+    //  Note: I can access authMessage ViewChild here because I made it { static: true }
     //
     if (this.authMessage) {
       this.authMessage.days = 30;
@@ -43,30 +43,15 @@ export class AuthFormComponent
   }
 
   ngAfterViewInit(): void {
-    //  Note: This will cause 'expression changed after checked' error
-    //
-    // if (this.authMessage) {
-    //   this.authMessage.days = 30;
-    // }
-    // console.log(this.authMessage);
-
     console.log(`Email: `, this.email);
+    this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');
   }
 
   ngAfterContentInit(): void {
-    //  console.log('===> ngAfterContentInit', this.authRemember);
-
     if (this.authRemember) {
       console.log(this.authRemember);
       this.showMessage = this.authRemember.checked as Observable<boolean>;
     }
-
-    //  Note: This is null, even though Todd shows it working. Static?
-    //
-    // if (this.authMessage) {
-    //   this.authMessage.days = 30;
-    // }
-    // console.log('Auth Message: ', this.authMessage);
   }
 
   onSubmit(value: User): void {
