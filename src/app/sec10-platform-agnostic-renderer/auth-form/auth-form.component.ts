@@ -7,6 +7,7 @@ import {
   EventEmitter,
   OnInit,
   Output,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -39,6 +40,8 @@ export class AuthFormComponent
 
   @Output() submitted = new EventEmitter<User>();
 
+  constructor(private render: Renderer2) {}
+
   ngOnInit(): void {
     //  Note: I can access authMessage ViewChild here because I made it { static: true }
     //
@@ -50,9 +53,17 @@ export class AuthFormComponent
 
   ngAfterViewInit(): void {
     console.log(`Email: `, this.email);
-    this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');
-    this.email?.nativeElement.classList.add('email');
-    this.email?.nativeElement.focus();
+    // this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');
+    // this.email?.nativeElement.classList.add('email');
+    // this.email?.nativeElement.focus();
+
+    this.render.setAttribute(
+      this.email?.nativeElement,
+      'placeholder',
+      'Enter your email'
+    );
+
+    this.render.addClass(this.email?.nativeElement, 'email');
   }
 
   ngAfterContentInit(): void {
