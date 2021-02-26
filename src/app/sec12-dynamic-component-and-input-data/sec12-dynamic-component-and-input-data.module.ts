@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { SharedModule } from '../shared/shared.module';
+import { AuthFormComponent } from './auth-form/auth-form.component';
+import { DynamicAuthFormComponent } from './dynamic-auth-form/dynamic-auth-form.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [AuthFormComponent, DynamicAuthFormComponent],
+  imports: [SharedModule],
 })
-export class Sec12DynamicComponentAndInputDataModule { }
+export class Sec12DynamicComponentAndInputDataModule {}
