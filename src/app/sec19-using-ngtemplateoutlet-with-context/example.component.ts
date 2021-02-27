@@ -3,18 +3,23 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-example',
   template: `
-    <p>
-      example works!
-    </p>
+    <div>
+      <ng-container *ngTemplateOutlet="tmpl; context: ctx"></ng-container>
+
+      <ng-template #tmpl let-name let-location="location">
+        {{ name }} : {{ location }}
+      </ng-template>
+    </div>
   `,
-  styles: [
-  ]
+  styles: [],
 })
 export class ExampleComponent implements OnInit {
+  ctx = {
+    $implicit: 'Todd Motto',
+    location: 'England, UK',
+  };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
