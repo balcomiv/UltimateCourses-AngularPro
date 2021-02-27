@@ -5,7 +5,6 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { User } from '../../shared/user';
 import { AuthFormComponent } from '../auth-form/auth-form.component';
 
 //  https://labs.thisdot.co/blog/loading-components-dynamically-in-angular-9-with-ivy
@@ -38,9 +37,5 @@ export class DynamicAuthFormComponent implements OnInit {
         console.log('===> Submitted: ', value)
       );
     }
-  }
-
-  loginUser(user: User): void {
-    console.log('Login: ', user);
   }
 }
