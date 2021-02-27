@@ -1447,7 +1447,7 @@
         {
             "name": "AuthFormComponent",
             "id": "component-AuthFormComponent-eff3b54a2eaa37ae6716281c88c14075-12",
-            "file": "src/app/sec14-destroying-dynamic-components/auth-form/auth-form.component.ts",
+            "file": "src/app/sec13-dynamic-component-and-output-subscriptions/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -1526,7 +1526,7 @@
         {
             "name": "AuthFormComponent",
             "id": "component-AuthFormComponent-eff3b54a2eaa37ae6716281c88c14075-13",
-            "file": "src/app/sec13-dynamic-component-and-output-subscriptions/auth-form/auth-form.component.ts",
+            "file": "src/app/sec14-destroying-dynamic-components/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2064,7 +2064,86 @@
         },
         {
             "name": "DynamicAuthFormComponent",
-            "id": "component-DynamicAuthFormComponent-21b0bdae4d2b47d526a1f3dcaff152f5-2",
+            "id": "component-DynamicAuthFormComponent-1855f9a72d2d79e70ca8d731e41ea312-2",
+            "file": "src/app/sec13-dynamic-component-and-output-subscriptions/dynamic-auth-form/dynamic-auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-dynamic-auth-form",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div>\n  <div #entry></div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "entry",
+                    "defaultValue": "null",
+                    "type": "ViewContainerRef | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'entry', {read: ViewContainerRef, static: true}"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  ComponentFactoryResolver,\n  OnInit,\n  ViewChild,\n  ViewContainerRef,\n} from '@angular/core';\nimport { AuthFormComponent } from '../auth-form/auth-form.component';\n\n//  https://labs.thisdot.co/blog/loading-components-dynamically-in-angular-9-with-ivy\n\n@Component({\n  selector: 'app-dynamic-auth-form',\n  template: `\n    <div>\n      <div #entry></div>\n    </div>\n  `,\n  styles: [],\n})\nexport class DynamicAuthFormComponent implements OnInit {\n  @ViewChild('entry', { read: ViewContainerRef, static: true })\n  entry: ViewContainerRef | null = null;\n\n  constructor(private resolver: ComponentFactoryResolver) {}\n\n  ngOnInit(): void {\n    const authFormFactory = this.resolver.resolveComponentFactory(\n      AuthFormComponent\n    );\n    const component = this.entry?.createComponent(authFormFactory);\n    console.log('===> Component: ', component?.instance);\n    if (component?.instance) {\n      component.instance.title = 'New Login';\n\n      component.instance.submitted.subscribe((value) =>\n        console.log('===> Submitted: ', value)\n      );\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "resolver",
+                        "type": "ComponentFactoryResolver"
+                    }
+                ],
+                "line": 23,
+                "jsdoctags": [
+                    {
+                        "name": "resolver",
+                        "type": "ComponentFactoryResolver",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 2,
+            "duplicateName": "DynamicAuthFormComponent-2"
+        },
+        {
+            "name": "DynamicAuthFormComponent",
+            "id": "component-DynamicAuthFormComponent-21b0bdae4d2b47d526a1f3dcaff152f5-3",
             "file": "src/app/sec14-destroying-dynamic-components/dynamic-auth-form/dynamic-auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2140,85 +2219,6 @@
                     }
                 ],
                 "line": 29,
-                "jsdoctags": [
-                    {
-                        "name": "resolver",
-                        "type": "ComponentFactoryResolver",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 2,
-            "duplicateName": "DynamicAuthFormComponent-2"
-        },
-        {
-            "name": "DynamicAuthFormComponent",
-            "id": "component-DynamicAuthFormComponent-1855f9a72d2d79e70ca8d731e41ea312-3",
-            "file": "src/app/sec13-dynamic-component-and-output-subscriptions/dynamic-auth-form/dynamic-auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-dynamic-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<div>\n  <div #entry></div>\n</div>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "entry",
-                    "defaultValue": "null",
-                    "type": "ViewContainerRef | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 23,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'entry', {read: ViewContainerRef, static: true}"
-                        }
-                    ]
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 27
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import {\n  Component,\n  ComponentFactoryResolver,\n  OnInit,\n  ViewChild,\n  ViewContainerRef,\n} from '@angular/core';\nimport { AuthFormComponent } from '../auth-form/auth-form.component';\n\n//  https://labs.thisdot.co/blog/loading-components-dynamically-in-angular-9-with-ivy\n\n@Component({\n  selector: 'app-dynamic-auth-form',\n  template: `\n    <div>\n      <div #entry></div>\n    </div>\n  `,\n  styles: [],\n})\nexport class DynamicAuthFormComponent implements OnInit {\n  @ViewChild('entry', { read: ViewContainerRef, static: true })\n  entry: ViewContainerRef | null = null;\n\n  constructor(private resolver: ComponentFactoryResolver) {}\n\n  ngOnInit(): void {\n    const authFormFactory = this.resolver.resolveComponentFactory(\n      AuthFormComponent\n    );\n    const component = this.entry?.createComponent(authFormFactory);\n    console.log('===> Component: ', component?.instance);\n    if (component?.instance) {\n      component.instance.title = 'New Login';\n\n      component.instance.submitted.subscribe((value) =>\n        console.log('===> Submitted: ', value)\n      );\n    }\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [
-                    {
-                        "name": "resolver",
-                        "type": "ComponentFactoryResolver"
-                    }
-                ],
-                "line": 23,
                 "jsdoctags": [
                     {
                         "name": "resolver",
@@ -2341,7 +2341,54 @@
         },
         {
             "name": "ExampleComponent",
-            "id": "component-ExampleComponent-89fd74cf93a629ecf5064a3d694fab97",
+            "id": "component-ExampleComponent-676d6d23410a928e1f55895adc1e534f",
+            "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-example",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div>\n  <ng-container *ngTemplateOutlet=\"tmpl\"></ng-container>\n  <ng-template #tmpl>\n    Todd Motto : England, UK\n  </ng-template>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-example',\n  template: `\n    <div>\n      <ng-container *ngTemplateOutlet=\"tmpl\"></ng-container>\n      <ng-template #tmpl>\n        Todd Motto : England, UK\n      </ng-template>\n    </div>\n  `,\n  styles: [],\n})\nexport class ExampleComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 15
+            },
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "ExampleComponent",
+            "id": "component-ExampleComponent-89fd74cf93a629ecf5064a3d694fab97-1",
             "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2429,11 +2476,14 @@
             },
             "implements": [
                 "OnInit"
-            ]
+            ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "ExampleComponent-1"
         },
         {
             "name": "ExampleComponent",
-            "id": "component-ExampleComponent-d2dc7f95350e4cebfa1bcf905acd4140-1",
+            "id": "component-ExampleComponent-d2dc7f95350e4cebfa1bcf905acd4140-2",
             "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2507,8 +2557,8 @@
                 "AfterViewInit"
             ],
             "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "ExampleComponent-1"
+            "duplicateId": 2,
+            "duplicateName": "ExampleComponent-2"
         },
         {
             "name": "HeaderComponent",
@@ -3276,6 +3326,39 @@
             ]
         },
         {
+            "name": "Sec18DynamicNgTemplateRenderingWithNgtemplateoutletModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ExampleComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "SharedModule",
             "children": [
                 {
@@ -3357,9 +3440,25 @@
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-example></app-example>\r\n      </div>\r\n    `,\r\n})"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
             },
             {
                 "name": "Large",
@@ -3493,7 +3592,7 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec14-destroying-dynamic-components/dynamic-auth-form/auth-form.stories.ts",
+                "file": "src/app/sec13-dynamic-component-and-output-subscriptions/dynamic-auth-form/auth-form.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
@@ -3501,7 +3600,7 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec13-dynamic-component-and-output-subscriptions/dynamic-auth-form/auth-form.stories.ts",
+                "file": "src/app/sec14-destroying-dynamic-components/dynamic-auth-form/auth-form.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
@@ -3512,14 +3611,6 @@
                 "file": "src/app/sec15-dynamic-components-reordering/dynamic-auth-form/auth-form.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
-            },
-            {
-                "name": "Login",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts",
-                "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-example></app-example>\r\n      </div>\r\n    `,\r\n})"
             },
             {
                 "name": "Primary",
@@ -3716,6 +3807,26 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
+            "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
+                }
+            ],
+            "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-example></app-example>\r\n      </div>\r\n    `,\r\n})"
+                }
+            ],
             "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts": [
                 {
                     "name": "Example",
@@ -3723,7 +3834,7 @@
                     "subtype": "variable",
                     "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts",
                     "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -3938,22 +4049,22 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
-            "src/app/sec14-destroying-dynamic-components/dynamic-auth-form/auth-form.stories.ts": [
-                {
-                    "name": "Login",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec14-destroying-dynamic-components/dynamic-auth-form/auth-form.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
-                }
-            ],
             "src/app/sec13-dynamic-component-and-output-subscriptions/dynamic-auth-form/auth-form.stories.ts": [
                 {
                     "name": "Login",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/sec13-dynamic-component-and-output-subscriptions/dynamic-auth-form/auth-form.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                }
+            ],
+            "src/app/sec14-destroying-dynamic-components/dynamic-auth-form/auth-form.stories.ts": [
+                {
+                    "name": "Login",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec14-destroying-dynamic-components/dynamic-auth-form/auth-form.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
@@ -3966,16 +4077,6 @@
                     "file": "src/app/sec15-dynamic-components-reordering/dynamic-auth-form/auth-form.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
-                }
-            ],
-            "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts": [
-                {
-                    "name": "Login",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-example></app-example>\r\n      </div>\r\n    `,\r\n})"
                 }
             ],
             "src/app/sec03-projecting-and-binding-to-components/auth-form/auth-remember.stories.ts": [
@@ -4510,7 +4611,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Login",
+                "name": "Example",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4526,6 +4627,25 @@
             },
             {
                 "filePath": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ExampleComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
