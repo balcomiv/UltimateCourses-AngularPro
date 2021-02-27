@@ -26,7 +26,7 @@
       "import { Meta, Story } from '@storybook/angular/types-6-0';",
       "",
       "export default {",
-      "title: 'Ultimate Angular/03 Projecting and Binding to Components',",
+      "title: 'Ultimate Angular/$3',",
       "component: $1,",
       "decorators: [",
       " moduleMetadata({",
