@@ -14,7 +14,10 @@ import { AuthFormComponent } from '../auth-form/auth-form.component';
   selector: 'app-dynamic-auth-form',
   template: `
     <button class="padded-button" (click)="destroyComponent()">
-      Destroy Component
+      Destroy
+    </button>
+    <button class="padded-button" (click)="moveComponent()">
+      Move
     </button>
     <div>
       <div #entry></div>
@@ -35,8 +38,10 @@ export class DynamicAuthFormComponent implements OnInit {
       AuthFormComponent
     );
 
+    this.entry?.createComponent(authFormFactory); // Default index is -1 and is added as the last entry
+
     this.component = this.entry
-      ? this.entry.createComponent(authFormFactory)
+      ? this.entry.createComponent(authFormFactory, 0)
       : null;
 
     console.log('===> Component: ', this.component?.instance);
@@ -52,5 +57,11 @@ export class DynamicAuthFormComponent implements OnInit {
 
   destroyComponent(): void {
     this.component?.destroy();
+  }
+
+  moveComponent(): void {
+    if (this.entry && this.component) {
+      this.entry.move(this.component.hostView, 1);
+    }
   }
 }
