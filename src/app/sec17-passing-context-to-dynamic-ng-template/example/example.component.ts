@@ -1,20 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-example',
   template: `
-    <p>
-      example works!
-    </p>
+    <div>
+      <div #entry>
+        <ng-template #tmpl let-name let-location="location">
+          {{ name }} : {{ location }}
+        </ng-template>
+      </div>
+    </div>
   `,
-  styles: [
-  ]
+  styles: [],
 })
-export class ExampleComponent implements OnInit {
+export class ExampleComponent implements AfterViewInit {
+  @ViewChild('tmpl') tmpl: TemplateRef<unknown> | null = null;
 
-  constructor() { }
+  @ViewChild('entry', { read: ViewContainerRef })
+  entry: ViewContainerRef | null = null;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngAfterViewInit(): void {
+    if (this.tmpl) {
+      this.entry?.createEmbeddedView(this.tmpl, {
+        $implicit: 'Motto Todd',
+        location: 'UK, England',
+      });
+    }
   }
-
 }

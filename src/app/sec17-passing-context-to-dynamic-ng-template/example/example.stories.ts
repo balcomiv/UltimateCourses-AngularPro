@@ -15,8 +15,10 @@ export default {
   ],
 } as Meta;
 
-export const WithTemplate: Story = () => ({
+export const Example: Story = () => ({
   template: `
-   <app-example></app-example>
+  <div class="app-root">
+    <app-example></app-example>
+  </div>
 `,
 });
