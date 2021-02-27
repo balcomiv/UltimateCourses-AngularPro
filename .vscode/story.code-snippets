@@ -26,11 +26,11 @@
       "import { Meta, Story } from '@storybook/angular/types-6-0';",
       "",
       "export default {",
-      "title: 'Ultimate Angular/$3',",
-      "component: $1,",
+      "title: 'Ultimate Angular/$1',",
+      "component: $2,",
       "decorators: [",
       " moduleMetadata({",
-      "   declarations: [$2],",
+      "   declarations: [$3],",
       "   imports: [CommonModule, FormsModule],",
       " }),",
       "],",
@@ -41,7 +41,7 @@
       "   <div>Story Works!</div>",
       "`",
       "});",
-      "$3"
+      "$4"
     ],
     "description": "Log output to console"
   }
