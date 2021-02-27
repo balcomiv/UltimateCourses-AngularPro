@@ -17,7 +17,7 @@ export default {
 
 export const Example: Story = () => ({
   template: `
-  <div class="app-root">
+  <div class="app-root" style="padding: 15px;">
     <app-example></app-example>
   </div>
 `,

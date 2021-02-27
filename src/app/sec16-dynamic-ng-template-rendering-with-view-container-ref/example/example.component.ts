@@ -10,7 +10,7 @@ import {
 //  https://labs.thisdot.co/blog/loading-components-dynamically-in-angular-9-with-ivy
 
 @Component({
-  selector: 'app-dynamic-auth-form',
+  selector: 'app-example',
   template: `
     <div>
       <div #entry></div>
@@ -28,7 +28,7 @@ import {
     `,
   ],
 })
-export class DynamicAuthFormComponent implements OnInit {
+export class ExampleComponent implements OnInit {
   @ViewChild('entry', { read: ViewContainerRef, static: true })
   entry: ViewContainerRef | null = null;
 
