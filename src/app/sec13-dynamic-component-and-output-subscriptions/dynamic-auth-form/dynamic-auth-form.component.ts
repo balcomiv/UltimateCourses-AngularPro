@@ -33,6 +33,10 @@ export class DynamicAuthFormComponent implements OnInit {
     console.log('===> Component: ', component?.instance);
     if (component?.instance) {
       component.instance.title = 'New Login';
+
+      component.instance.submitted.subscribe((value) =>
+        console.log('===> Submitted: ', value)
+      );
     }
   }
 
