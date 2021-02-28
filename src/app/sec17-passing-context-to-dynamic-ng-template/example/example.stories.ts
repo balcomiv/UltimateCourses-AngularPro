@@ -5,7 +5,8 @@ import { Meta, Story } from '@storybook/angular/types-6-0';
 import { ExampleComponent } from './example.component';
 
 export default {
-  title: 'Ultimate Angular/17 Passing Context to Dynamic <ng-template>',
+  title:
+    'Ultimate Angular Pro/Advanced Components/17 Passing Context to Dynamic <ng-template>',
   component: ExampleComponent,
   decorators: [
     moduleMetadata({

@@ -9,7 +9,8 @@ import { User } from '../../shared/user';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/07 ViewChildren && QueryLists',
+  title:
+    'Ultimate Angular Pro/Advanced Components/07 ViewChildren && QueryLists',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

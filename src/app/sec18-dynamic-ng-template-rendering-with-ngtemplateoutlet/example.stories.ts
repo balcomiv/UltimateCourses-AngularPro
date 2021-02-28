@@ -5,7 +5,7 @@ import { ExampleComponent } from './example.component';
 
 export default {
   title:
-    'Ultimate Angular/18 Dynamic <ng-template> Rendering With ngTemplateOutlet',
+    'Ultimate Angular Pro/Advanced Components/18 Dynamic <ng-template> Rendering With ngTemplateOutlet',
   component: ExampleComponent,
   decorators: [
     moduleMetadata({

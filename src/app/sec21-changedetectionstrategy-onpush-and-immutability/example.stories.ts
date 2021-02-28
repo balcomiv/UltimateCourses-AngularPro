@@ -6,7 +6,8 @@ import { ExampleComponent } from './example.component';
 import { OnpushChangeDetectionComponent } from './onpush-change-detection.component';
 
 export default {
-  title: 'Ultimate Angular/ChangeDetectionStrategy.OnPush && Immutability',
+  title:
+    'Ultimate Angular Pro/Advanced Components/ChangeDetectionStrategy.OnPush && Immutability',
   component: ExampleComponent,
   decorators: [
     moduleMetadata({

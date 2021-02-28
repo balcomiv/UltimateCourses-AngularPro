@@ -5,7 +5,7 @@ import { Meta, Story } from '@storybook/angular/types-6-0';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/02 Content Projection Slots',
+  title: 'Ultimate Angular Pro/Advanced Components/02 Content Projection Slots',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

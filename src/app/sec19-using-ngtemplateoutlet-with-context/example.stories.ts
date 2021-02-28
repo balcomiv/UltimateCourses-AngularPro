@@ -4,7 +4,8 @@ import { Meta, Story } from '@storybook/angular/types-6-0';
 import { ExampleComponent } from './example.component';
 
 export default {
-  title: 'Ultimate Angular/19 Using ngTemplateOutlet With Context',
+  title:
+    'Ultimate Angular Pro/Advanced Components/19 Using ngTemplateOutlet With Context',
   component: ExampleComponent,
   decorators: [
     moduleMetadata({

@@ -9,7 +9,8 @@ import { User } from '../../shared/user';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/10 Platform Agnostic Renderer',
+  title:
+    'Ultimate Angular Pro/Advanced Components/10 Platform Agnostic Renderer',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

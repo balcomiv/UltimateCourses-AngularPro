@@ -5,7 +5,8 @@ import { Meta, Story } from '@storybook/angular/types-6-0';
 import { ExampleOneComponent } from './example-one.component';
 
 export default {
-  title: 'Ultimate Angular/20 ViewEncapsulation && Shadow DOM',
+  title:
+    'Ultimate Angular Pro/Advanced Components/20 ViewEncapsulation && Shadow DOM',
   component: ExampleOneComponent,
   decorators: [
     moduleMetadata({

@@ -8,7 +8,8 @@ import { User } from '../../shared/user';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/04 ContentChild && ngAfterContentInit',
+  title:
+    'Ultimate Angular Pro/Advanced Components/04 ContentChild && ngAfterContentInit',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

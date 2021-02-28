@@ -8,7 +8,8 @@ import { AuthFormComponent } from './auth-form.component';
 import { AuthRememberComponent } from './auth-remember.component';
 
 export default {
-  title: 'Ultimate Angular/03 Projecting and Binding to Components',
+  title:
+    'Ultimate Angular Pro/Advanced Components/03 Projecting and Binding to Components',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

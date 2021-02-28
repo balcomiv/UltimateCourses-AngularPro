@@ -8,7 +8,8 @@ import { AuthFormComponent } from '../auth-form/auth-form.component';
 import { DynamicAuthFormComponent } from './dynamic-auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/12 Dynamic Component && Input Data',
+  title:
+    'Ultimate Angular Pro/Advanced Components/12 Dynamic Component && Input Data',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

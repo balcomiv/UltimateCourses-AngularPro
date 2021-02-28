@@ -9,7 +9,7 @@ import { User } from '../../shared/user';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/08 ViewChild && TemplateRef',
+  title: 'Ultimate Angular Pro/Advanced Components/08 ViewChild && TemplateRef',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

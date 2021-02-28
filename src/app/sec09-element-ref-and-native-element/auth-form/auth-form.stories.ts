@@ -9,7 +9,8 @@ import { User } from '../../shared/user';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/09 ElementRef && NativeElement',
+  title:
+    'Ultimate Angular Pro/Advanced Components/09 ElementRef && NativeElement',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

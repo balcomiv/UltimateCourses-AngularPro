@@ -9,7 +9,8 @@ import { User } from '../../shared/user';
 import { AuthFormComponent } from './auth-form.component';
 
 export default {
-  title: 'Ultimate Angular/06 ViewChild && ngAfterViewInit',
+  title:
+    'Ultimate Angular Pro/Advanced Components/06 ViewChild && ngAfterViewInit',
   component: AuthFormComponent,
   decorators: [
     moduleMetadata({

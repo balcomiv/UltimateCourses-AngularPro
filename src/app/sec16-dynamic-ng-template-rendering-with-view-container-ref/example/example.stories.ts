@@ -5,7 +5,8 @@ import { Meta, Story } from '@storybook/angular/types-6-0';
 import { ExampleComponent } from './example.component';
 
 export default {
-  title: 'Ultimate Angular/16 Dynamic <ng-template> Rendering',
+  title:
+    'Ultimate Angular Pro/Advanced Components/16 Dynamic <ng-template> Rendering',
   component: ExampleComponent,
   decorators: [
     moduleMetadata({

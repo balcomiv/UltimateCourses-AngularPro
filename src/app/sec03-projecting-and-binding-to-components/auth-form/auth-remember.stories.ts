@@ -6,7 +6,7 @@ import { Meta } from '@storybook/angular/types-6-0';
 import { AuthRememberComponent } from './auth-remember.component';
 
 export default {
-  title: 'Ultimate Angular/Auth Remember',
+  title: 'Ultimate Angular Pro/Advanced Components/Auth Remember',
   component: AuthRememberComponent,
   decorators: [
     moduleMetadata({
