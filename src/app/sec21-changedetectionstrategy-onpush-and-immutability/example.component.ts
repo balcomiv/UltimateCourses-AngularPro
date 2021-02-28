@@ -9,8 +9,12 @@ import { User } from '../shared/user';
       <button (click)="changeUser()">Change User Object</button>
       <button (click)="changeName()">Change Name Property</button>
       <div class="users">
-        <app-default-change-detection></app-default-change-detection>
-        <app-onpush-change-detection></app-onpush-change-detection>
+        <app-default-change-detection
+          [user]="user"
+        ></app-default-change-detection>
+        <app-onpush-change-detection
+          [user]="user"
+        ></app-onpush-change-detection>
       </div>
     </div>
   `,

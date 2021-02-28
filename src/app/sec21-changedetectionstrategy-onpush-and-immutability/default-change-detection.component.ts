@@ -5,10 +5,11 @@ import { User } from '../shared/user';
   selector: 'app-default-change-detection',
   template: `
     <div class="default-example">
+      <h2>Default</h2>
       <h4>{{ user?.name }}</h4>
       <h5>{{ user?.age }} years old</h5>
       {{ user?.location }} <br />
-      {{ user?.email }}
+      {{ user?.email }} <br />
 
       <button (click)="update()">Internal Update</button>
       <p>* should update</p>

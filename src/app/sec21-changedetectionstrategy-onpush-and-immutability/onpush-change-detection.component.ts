@@ -6,10 +6,11 @@ import { User } from '../shared/user';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="on-push-example">
+      <h2>OnPush</h2>
       <h4>{{ user?.name }}</h4>
       <h5>{{ user?.age }} years old</h5>
       {{ user?.location }} <br />
-      {{ user?.email }}
+      {{ user?.email }} <br />
 
       <button (click)="update()">Internal Update</button>
       <p>* should not update</p>
