@@ -148,5 +148,7 @@
       "app",
       "kebab-case"
     ]
-  }
+  },
+  "no-any": true,
+  "no-unsafe-any": true
 }

@@ -30,6 +30,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - https://stackoverflow.com/questions/61451973/storybook-angular-how-to-add-actions-in-nested-screen-stories
 
+## Editor Formatting
+
+`"editor.codeActionsOnSave": { "source.organizeImports": true, "source.fixAll": true },`
+
+## Type Safety
+
+- [Strictly Typed Strict Mode is Not Enough](https://medium.com/@cyrilletuzi/typescript-strictly-typed-strict-mode-is-not-enough-40df698e2deb)
+
 ## Helpful Commands
 
 - `ng g c sec03-projecting-and-binding-to-components/auth-form -s --skip-tests`
