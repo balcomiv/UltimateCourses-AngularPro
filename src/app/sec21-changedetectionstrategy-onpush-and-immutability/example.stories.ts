@@ -7,7 +7,7 @@ import { OnpushChangeDetectionComponent } from './onpush-change-detection.compon
 
 export default {
   title:
-    'Ultimate Angular Pro/Advanced Components/ChangeDetectionStrategy.OnPush && Immutability',
+    'Ultimate Angular Pro/Advanced Components/21 ChangeDetectionStrategy.OnPush && Immutability',
   component: ExampleComponent,
   decorators: [
     moduleMetadata({
