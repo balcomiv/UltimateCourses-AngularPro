@@ -68,3 +68,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Links to Look At
 
 - https://indepth.dev/posts/1198/angular-forms-story-strong-types
+
+- [Easy functional programming techniques in TypeScript for everyone](https://deepu.tech/functional-programming-in-typescript/)
