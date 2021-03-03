@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { SharedModule } from '../shared/shared.module';
+import { TooltipDirective } from './tooltip.directive';
+import { ExampleComponent } from './example.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [TooltipDirective, ExampleComponent],
+  imports: [SharedModule],
+  exports: [SharedModule, TooltipDirective],
 })
-export class Sec25ExportAsModule { }
+export class Sec25ExportAsModule {}
