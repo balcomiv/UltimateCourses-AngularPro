@@ -16,4 +16,34 @@
   <input type="text" />
 </label> -->
 
-<div appTest #test="test">Testing...</div>
+<!-- <div appTest #test="test">Testing...</div> -->
+
+<!-- <label appTooltip="3 digits, back of your card" #myTooltip="tooltip">
+  Enter your security code
+  <span (mouseover)="myTooltip.show()" (mouseout)="myTooltip.hide()">
+    (?)
+  </span>
+  <input type="text" />
+</label> -->
+
+<!-- <app-example class="app-root">
+  <ng-template #layoutTemplate>
+    <div>
+      Example of inserted template
+    </div>
+  </ng-template>
+</app-example> -->
+
+<app-example>
+  <ng-template #layoutTemplate>
+    <label appTooltip="3 digits, back of your card" #myTooltip="tooltip">
+      Enter your security code
+      <span (mouseover)="myTooltip.show()" (mouseout)="myTooltip.hide()">
+        (?)
+      </span>
+      <input type="text" />
+    </label>
+  </ng-template>
+</app-example>
+
+<!-- <app-example></app-example> -->

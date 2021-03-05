@@ -76,3 +76,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Storybook - CSS Resources
 
 - https://www.npmjs.com/package/@storybook/addon-cssresources
+
+- [Angular 10 + Storybook + npm package = NG Design System 💜 - Step-by-Step](https://dev.to/activenode/angular-10-storybook-npm-package-ng-design-system-step-by-step-2dn2)

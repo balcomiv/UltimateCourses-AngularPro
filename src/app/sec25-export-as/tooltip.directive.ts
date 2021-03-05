@@ -19,14 +19,16 @@ export class TooltipDirective implements OnInit {
     this.element.nativeElement.appendChild(this.tooltipElement);
     this.element.nativeElement.classList.add('tooltip-container');
 
-    this.tooltipElement.classList.add('tooltip--active');
+    //  this.tooltipElement.classList.add('tooltip--active');
   }
 
   show(): void {
     this.tooltipElement.classList.add('tooltip--active');
+    console.log('Showing');
   }
 
   hide(): void {
     this.tooltipElement.classList.remove('tooltip--active');
+    console.log('Hiding');
   }
 }
