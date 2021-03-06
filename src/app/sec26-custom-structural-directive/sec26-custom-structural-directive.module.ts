@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NgModule } from '@angular/core';
+import { ExampleComponent } from './example/example.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ExampleComponent],
+  imports: [CommonModule],
+  exports: [ExampleComponent],
 })
-export class Sec26CustomStructuralDirectiveModule { }
+export class Sec26CustomStructuralDirectiveModule {}
