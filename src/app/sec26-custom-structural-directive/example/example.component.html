@@ -1,10 +1,33 @@
 <div>
   <ul>
+    <!-- '*' is essentially a shortcut for 'template' -->
     <li *ngFor="let item of items; let i = index">
       {{ i }} Member: {{ item.name | json }}
     </li>
 
+    <br />
+
+    <!-- Expanded/desuguared template -->
     <ng-template ngFor [ngForOf]="items" let-item let-i="index">
+      <li>{{ i }} Member: {{ item.name | json }}</li>
+    </ng-template>
+  </ul>
+</div>
+
+<br />
+<hr />
+
+<div>
+  <ul>
+    <!-- '*' is essentially a shortcut for 'template' -->
+    <li *appMyFor="let item of items; let i = index">
+      {{ i }} Member: {{ item.name | json }}
+    </li>
+
+    <br />
+
+    <!-- Expanded/desuguared template -->
+    <ng-template appMyFor [appMyForOf]="items" let-item let-i="index">
       <li>{{ i }} Member: {{ item.name | json }}</li>
     </ng-template>
   </ul>
