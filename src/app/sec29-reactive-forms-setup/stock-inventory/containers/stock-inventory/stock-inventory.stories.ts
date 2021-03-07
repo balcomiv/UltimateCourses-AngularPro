@@ -1,5 +1,3 @@
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular/types-6-0';
 import { StockInventoryComponent } from './stock-inventory.component';
@@ -10,7 +8,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [StockInventoryComponent],
-      imports: [CommonModule, FormsModule],
+      imports: [],
     }),
   ],
 } as Meta;
