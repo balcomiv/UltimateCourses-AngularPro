@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ContainersComponent } from './stock-inventory/containers/containers.component';
+import { StockInventoryComponent } from './stock-inventory/containers/stock-inventory/stock-inventory.component';
 
 @NgModule({
-  declarations: [ContainersComponent],
+  declarations: [StockInventoryComponent],
   imports: [CommonModule, ReactiveFormsModule],
 })
 export class Sec29ReactiveFormsSetupModule {}
