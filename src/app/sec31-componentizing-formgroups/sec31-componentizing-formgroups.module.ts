@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StockBranchComponent } from './components/stock-branch/stock-branch.component';
 import { StockProductsComponent } from './components/stock-products/stock-products.component';
-import { StockInventoryComponent } from './containers/stock-inventory/stock-inventory.component';
 import { StockSelectorComponent } from './components/stock-selector/stock-selector.component';
+import { StockInventoryComponent } from './containers/stock-inventory/stock-inventory.component';
 
 @NgModule({
   declarations: [
@@ -14,5 +14,6 @@ import { StockSelectorComponent } from './components/stock-selector/stock-select
     StockSelectorComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
+  exports: [StockInventoryComponent],
 })
 export class Sec31ComponentizingFormgroupsModule {}
