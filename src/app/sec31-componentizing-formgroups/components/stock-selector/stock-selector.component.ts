@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-stock-branch',
-  templateUrl: './stock-branch.component.html',
-  styleUrls: ['./stock-branch.component.scss'],
+  selector: 'app-stock-selector',
+  templateUrl: './stock-selector.component.html',
+  styleUrls: ['./stock-selector.component.scss'],
 })
-export class StockBranchComponent implements OnInit {
+export class StockSelectorComponent implements OnInit {
   @Input() parent = new FormGroup({});
 
   constructor() {}

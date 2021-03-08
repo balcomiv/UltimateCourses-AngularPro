@@ -5,11 +5,6 @@
     <!-- <app-stock-selector></app-stock-selector> -->
     <!-- <app-stock-products></app-stock-products> -->
 
-    <div formGroupName="store">
-      <input type="text" placeholder="Branch ID" formControlName="branch" />
-      <input type="text" placeholder="Manager Code" formControlName="code" />
-    </div>
-
     <div class="stock-inventory__buttons">
       <button type="submit" [disabled]="form.invalid">
         Order Stock
