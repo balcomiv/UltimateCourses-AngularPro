@@ -1,0 +1,16 @@
+<div class="stock-inventory">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- This will be the component split out -->
+    <app-stock-branch></app-stock-branch>
+    <app-stock-selector></app-stock-selector>
+    <app-stock-products></app-stock-products>
+
+    <div class="stock-inventory__buttons">
+      <button type="submit" [disabled]="form.invalid">
+        Order Stock
+      </button>
+    </div>
+
+    <pre>{{ form.value | json }}</pre>
+  </form>
+</div>
