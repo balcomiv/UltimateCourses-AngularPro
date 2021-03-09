@@ -1,9 +1,13 @@
 <div class="stock-inventory">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <!-- This will be the component split out -->
-    <app-stock-branch></app-stock-branch>
-    <app-stock-selector></app-stock-selector>
-    <app-stock-products></app-stock-products>
+    <app-stock-branch [parent]="form"></app-stock-branch>
+
+    <app-stock-selector
+      [parent]="form"
+      [products]="products"
+    ></app-stock-selector>
+
+    <app-stock-products [parent]="form"></app-stock-products>
 
     <div class="stock-inventory__buttons">
       <button type="submit" [disabled]="form.invalid">
