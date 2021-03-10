@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Product } from '../../../shared/interfaces/product';
 
+interface Stock {
+  productId: string | number;
+  quantity: number;
+}
+
 @Component({
   selector: 'app-stock-inventory',
   templateUrl: './stock-inventory.component.html',
@@ -22,12 +27,22 @@ export class StockInventoryComponent {
       branch: new FormControl(''),
       code: new FormControl(''),
     }),
-    selector: new FormGroup({
-      productId: new FormControl(''),
-      quantity: new FormControl(10),
-    }),
-    stock: new FormArray([]),
+    selector: this.createStock({} as Stock),
+    stock: new FormArray([
+      this.createStock({ productId: 1, quantity: 10 }),
+      this.createStock({ productId: 3, quantity: 50 }),
+    ]),
   });
+
+  createStock(stock: Stock = { productId: '', quantity: 10 }): FormGroup {
+    const productId = +stock.productId || '';
+    const quantity = stock.quantity;
+
+    return new FormGroup({
+      productId: new FormControl(productId),
+      quantity: new FormControl(quantity),
+    });
+  }
 
   onSubmit(): void {
     console.log('Submit: ', this.form.value);
