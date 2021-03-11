@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Product } from '../../../shared/interfaces/product';
-
-interface Stock {
-  productId: string | number;
-  quantity: number;
-}
+import {
+  StockFormManager,
+  StockFormValue,
+} from '../../models/stock-form-manager';
 
 @Component({
   selector: 'app-stock-inventory',
@@ -22,19 +21,28 @@ export class StockInventoryComponent {
   ];
 
   //  Can initiate form up here because it is a static form group
-  form = new FormGroup({
-    store: new FormGroup({
-      branch: new FormControl(''),
-      code: new FormControl(''),
-    }),
-    selector: this.createStock({} as Stock),
-    stock: new FormArray([
-      this.createStock({ productId: 1, quantity: 10 }),
-      this.createStock({ productId: 3, quantity: 50 }),
-    ]),
-  });
+  formManager = new StockFormManager(
+    new FormGroup({
+      store: new FormGroup({
+        branch: new FormControl(''),
+        code: new FormControl(''),
+      }),
+      selector: this.createStockFormGroup({} as StockFormValue),
+      stock: new FormArray([
+        this.createStockFormGroup({ productId: '1', quantity: 10 }),
+        this.createStockFormGroup({ productId: '3', quantity: 50 }),
+      ]),
+    })
+  );
 
-  createStock(stock: Stock = { productId: '', quantity: 10 }): FormGroup {
+  form = this.formManager.form;
+
+  createStockFormGroup(
+    stock: StockFormValue = {
+      productId: '',
+      quantity: 10,
+    }
+  ): FormGroup {
     const productId = +stock.productId || '';
     const quantity = stock.quantity;
 
@@ -42,6 +50,13 @@ export class StockInventoryComponent {
       productId: new FormControl(productId),
       quantity: new FormControl(quantity),
     });
+  }
+
+  onAddStock(stock: StockFormValue): void {
+    console.log('onAddStock: ', stock);
+
+    const control = this.form.get('stock') as FormArray;
+    control.push(this.createStockFormGroup(stock));
   }
 
   onSubmit(): void {

@@ -1,18 +1,48 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Product } from '../../../shared/interfaces/product';
+import {
+  StockFormManager,
+  StockFormValue,
+} from '../../models/stock-form-manager';
 
 @Component({
   selector: 'app-stock-selector',
   templateUrl: './stock-selector.component.html',
   styleUrls: ['./stock-selector.component.scss'],
 })
-export class StockSelectorComponent implements OnInit {
-  @Input() parent = new FormGroup({});
+export class StockSelectorComponent {
+  @Input() set formManager(formManager: StockFormManager) {
+    this._formManager = formManager;
+  }
+
+  get formManager(): StockFormManager {
+    if (!this._formManager) {
+      throw new Error('Missing Form Manager!');
+    }
+
+    return this._formManager;
+  }
+
+  private _formManager: StockFormManager | null = null;
 
   @Input() products: Product[] = [];
 
-  constructor() {}
+  @Output() add = new EventEmitter<StockFormValue>();
 
-  ngOnInit(): void {}
+  get parent(): FormGroup {
+    return this.formManager.form;
+  }
+
+  onAdd(): void {
+    const selectedStockItem = this.formManager.getSelectedStockItem();
+    console.log('Selector value', selectedStockItem);
+
+    //  We will eventually make it so the button is disabled
+    if (!selectedStockItem) {
+      throw new Error('Unexpected null encountered!');
+    }
+
+    this.add.emit(selectedStockItem);
+  }
 }

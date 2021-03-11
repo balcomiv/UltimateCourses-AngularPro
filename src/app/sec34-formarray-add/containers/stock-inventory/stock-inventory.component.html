@@ -3,8 +3,9 @@
     <app-stock-branch [parent]="form"></app-stock-branch>
 
     <app-stock-selector
-      [parent]="form"
+      [formManager]="formManager"
       [products]="products"
+      (add)="onAddStock($event)"
     ></app-stock-selector>
 
     <app-stock-products [parent]="form"></app-stock-products>
