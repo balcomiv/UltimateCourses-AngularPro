@@ -35,13 +35,8 @@ export class StockSelectorComponent {
   }
 
   onAdd(): void {
-    const selectedStockItem = this.formManager.getSelectedStockItem();
+    const selectedStockItem = this.formManager.getSelectedStockFormGroupValue();
     console.log('Selector value', selectedStockItem);
-
-    //  We will eventually make it so the button is disabled
-    if (!selectedStockItem) {
-      throw new Error('Unexpected null encountered!');
-    }
 
     this.add.emit(selectedStockItem);
   }

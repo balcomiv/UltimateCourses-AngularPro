@@ -27,36 +27,21 @@ export class StockInventoryComponent {
         branch: new FormControl(''),
         code: new FormControl(''),
       }),
-      selector: this.createStockFormGroup({} as StockFormValue),
+      selector: StockFormManager.createStockFormGroup(),
       stock: new FormArray([
-        this.createStockFormGroup({ productId: '1', quantity: 10 }),
-        this.createStockFormGroup({ productId: '3', quantity: 50 }),
+        StockFormManager.createStockFormGroup({ productId: '1', quantity: 10 }),
+        StockFormManager.createStockFormGroup({ productId: '3', quantity: 50 }),
       ]),
     })
   );
 
   form = this.formManager.form;
 
-  createStockFormGroup(
-    stock: StockFormValue = {
-      productId: '',
-      quantity: 10,
-    }
-  ): FormGroup {
-    const productId = +stock.productId || '';
-    const quantity = stock.quantity;
-
-    return new FormGroup({
-      productId: new FormControl(productId),
-      quantity: new FormControl(quantity),
-    });
-  }
-
   onAddStock(stock: StockFormValue): void {
     console.log('onAddStock: ', stock);
 
-    const control = this.form.get('stock') as FormArray;
-    control.push(this.createStockFormGroup(stock));
+    const control = this.formManager.getStockFormArray();
+    control.push(StockFormManager.createStockFormGroup(stock));
   }
 
   onSubmit(): void {

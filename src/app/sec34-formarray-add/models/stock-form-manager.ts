@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { FormManager } from '../../shared/models/form-manager';
 
 export interface StockFormValue {
@@ -11,16 +11,60 @@ export class StockFormManager extends FormManager {
     super(form);
   }
 
-  getSelectedStockItem(): StockFormValue | null {
-    const selectedStockItem = this.form.get('selector')?.value; // Note: Selector is a FormGroup
+  static createStockFormGroup(
+    stock: StockFormValue = {
+      productId: '',
+      quantity: 10,
+    }
+  ): FormGroup {
+    const productId = +stock.productId || '';
+    const quantity = stock.quantity;
+
+    return new FormGroup({
+      productId: new FormControl(productId),
+      quantity: new FormControl(quantity),
+    });
+  }
+
+  //#region Control Value Getters
+
+  getSelectedStockFormGroupValue(): StockFormValue {
+    const selectedStockItem = this.getSelectedStockFormGroup().value;
 
     if (!this.isStockItem(selectedStockItem)) {
       throw new Error('Invalid Form Control for Stock Selector');
     }
 
-    //  return this.convertToStock(selectedStockItem);
     return selectedStockItem;
   }
+
+  //#endregion
+
+  //#region Control Getters
+
+  getSelectedStockFormGroup(): FormGroup {
+    const selectedStockFormGroup = this.form.get('selector');
+
+    if (!(selectedStockFormGroup instanceof FormGroup)) {
+      throw new Error('Invalid Form Control for Stock Selector');
+    }
+
+    return selectedStockFormGroup;
+  }
+
+  getStockFormArray(): FormArray {
+    const control = this.form.get('stock') as FormArray;
+
+    if (!(control instanceof FormArray)) {
+      throw new Error('Invalid FormArray for Stock');
+    }
+
+    return control;
+  }
+
+  //#endregion
+
+  //#region Utilities
 
   convertToStock(stock: StockFormValue): Stock | null {
     if (stock.productId === '' || stock.quantity === null) {
@@ -39,4 +83,6 @@ export class StockFormManager extends FormManager {
       (value as Stock).quantity !== undefined
     );
   }
+
+  //#endregion
 }
