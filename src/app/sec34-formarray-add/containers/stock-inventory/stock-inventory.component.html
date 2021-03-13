@@ -8,7 +8,10 @@
       (add)="onAddStock($event)"
     ></app-stock-selector>
 
-    <app-stock-products [parent]="form"></app-stock-products>
+    <app-stock-products
+      [formManager]="formManager"
+      (remove)="onRemoveStock($event)"
+    ></app-stock-products>
 
     <div class="stock-inventory__buttons">
       <button type="submit" [disabled]="form.invalid">

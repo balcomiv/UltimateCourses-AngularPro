@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Product } from '../../../shared/interfaces/product';
+import { RemovedStock } from '../../components/stock-products/stock-products.component';
 import {
   StockFormManager,
   StockFormValue,
@@ -42,6 +43,13 @@ export class StockInventoryComponent {
 
     const control = this.formManager.getStockFormArray();
     control.push(StockFormManager.createStockFormGroup(stock));
+  }
+
+  onRemoveStock({ stockFormGroup, index }: RemovedStock): void {
+    console.log('Removing');
+    //  console.log(stockFormGroup, index);
+    const formArray = this.formManager.getStockFormArray();
+    formArray.removeAt(index);
   }
 
   onSubmit(): void {
