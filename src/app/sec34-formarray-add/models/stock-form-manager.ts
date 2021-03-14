@@ -89,13 +89,13 @@ export class StockFormManager extends FormManager {
   }
 
   getStockFormArrayFormGroups(): FormGroup[] {
-    const formArray = this.getStockFormArray();
+    const controls = this.getStockFormArray().controls;
 
-    if (!this.isFormGroupArray(formArray.controls)) {
+    if (!this.isFormGroupArray(controls)) {
       throw new Error('Invalid FormGroup Array for Stock');
     }
 
-    return formArray.controls;
+    return controls;
   }
 
   //#endregion
@@ -149,7 +149,7 @@ export class StockFormManager extends FormManager {
   }
 
   isFormGroupArray(value: unknown[]): value is FormGroup[] {
-    return value[0] instanceof FormGroup;
+    return value.length === 0 || value[0] instanceof FormGroup;
   }
 
   //#endregion

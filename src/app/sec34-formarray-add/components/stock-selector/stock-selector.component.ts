@@ -37,23 +37,19 @@ export class StockSelectorComponent implements OnInit {
   addDisabled$ = new Observable<boolean>().pipe(startWith(true));
 
   ngOnInit(): void {
-    this.onChanges();
+    this.initValueChanges();
   }
 
-  onChanges(): void {
+  initValueChanges(): void {
     this.addDisabled$ = this.formManager
       .getStockSelectorProductIdValueChanges()
       .pipe(
-        tap((value) => console.log('Tap: ', value)),
-        startWith('1'),
+        tap((value) => console.log('ProductId Value Changes: ', value)),
+        startWith(''),
         map((value) => {
           return !value;
         })
       );
-    // .subscribe((productId) => {
-    //   this.productId = productId;
-    //   console.log('ValueChanges: ', productId);
-    // });
   }
 
   onAdd(): void {

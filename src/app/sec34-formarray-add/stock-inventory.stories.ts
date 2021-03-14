@@ -4,7 +4,8 @@ import { StockInventoryComponent } from './containers/stock-inventory/stock-inve
 import { Sec34FormarrayAddModule } from './sec34-formarray-add.module';
 
 export default {
-  title: 'Ultimate Angular Pro/Reactive Forms/34 Adding items to the FormArray',
+  title:
+    'Ultimate Angular Pro/Reactive Forms/34-35 Adding && Removing items utilizing FormArray',
   component: StockInventoryComponent,
   decorators: [
     moduleMetadata({
@@ -14,7 +15,7 @@ export default {
   ],
 } as Meta;
 
-export const WithTemplate: Story = () => ({
+export const withTemplate: Story = () => ({
   template: `
     <app-stock-inventory></app-stock-inventory>
 `,

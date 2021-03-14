@@ -1,12 +1,16 @@
-<!-- <div class="stock-selector" [formGroup]="parent">
+<div class="stock-selector" [formGroup]="parent">
+  <!-- FormGroup -->
   <div formGroupName="selector">
+    <!-- FormControl (select)-->
     <select formControlName="productId">
+      <!-- FormControl Values (select)-->
       <option value="">Select Stock</option>
       <option *ngFor="let product of products" [value]="product.id">
         {{ product.name }}
       </option>
     </select>
 
+    <!-- FormControl (quantity)-->
     <input
       type="number"
       step="10"
@@ -19,6 +23,4 @@
       Add Stock
     </button>
   </div>
-</div> -->
-
-<div>Disabled: {{ addDisabled$ | async }}</div>
+</div>

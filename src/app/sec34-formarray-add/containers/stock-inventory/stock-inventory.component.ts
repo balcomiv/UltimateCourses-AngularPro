@@ -47,7 +47,6 @@ export class StockInventoryComponent {
 
   onRemoveStock({ stockFormGroup, index }: RemovedStock): void {
     console.log('Removing');
-    //  console.log(stockFormGroup, index);
     const formArray = this.formManager.getStockFormArray();
     formArray.removeAt(index);
   }
