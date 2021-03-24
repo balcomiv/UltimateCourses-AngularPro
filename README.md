@@ -35,6 +35,16 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - https://stackoverflow.com/questions/61451973/storybook-angular-how-to-add-actions-in-nested-screen-stories
 
+## API
+
+### Proxy && db.json setup
+
+- https://kaustubhtalathi.medium.com/mock-data-for-angular-5-applications-with-json-server-part-1-d377eced223b
+
+## Sample APIs
+
+- https://swapi.dev/documentation
+
 ## Editor Formatting
 
 `"editor.codeActionsOnSave": { "source.organizeImports": true, "source.fixAll": true },`
