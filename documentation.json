@@ -520,7 +520,40 @@
         },
         {
             "name": "CreditCardDirective",
-            "id": "directive-CreditCardDirective-37ca64e5276f6e7e5b34ddcd939d3f8f-1",
+            "id": "directive-CreditCardDirective-49afe50925231ad3b446c6d3d78eec93-1",
+            "file": "src/app/sec23-host-listeners/credit-card.directive.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, HostListener } from '@angular/core';\n\n@Directive({\n  selector: '[appCreditCard]',\n})\nexport class CreditCardDirective {\n  @HostListener('input', ['$event']) onKeyDown(event: KeyboardEvent): void {\n    const input = event.target as HTMLInputElement;\n\n    let trimmed = input.value.replace(/\\s+/g, '');\n    if (trimmed.length > 16) {\n      trimmed = trimmed.substr(0, 16);\n    }\n\n    //  Fix Me - Strict types and lint should catch this implicit any...\n    const numbers = [];\n\n    for (let i = 0; i < trimmed.length; i += 4) {\n      numbers.push(trimmed.substr(i, 4));\n    }\n\n    input.value = numbers.join(' ');\n  }\n}\n",
+            "selector": "[appCreditCard]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "input",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "KeyboardEvent"
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "line": 7
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "CreditCardDirective-1"
+        },
+        {
+            "name": "CreditCardDirective",
+            "id": "directive-CreditCardDirective-37ca64e5276f6e7e5b34ddcd939d3f8f-2",
             "file": "src/app/sec24-host-binding/credit-card.directive.ts",
             "type": "directive",
             "description": "",
@@ -604,39 +637,6 @@
                     ]
                 }
             ],
-            "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "CreditCardDirective-1"
-        },
-        {
-            "name": "CreditCardDirective",
-            "id": "directive-CreditCardDirective-49afe50925231ad3b446c6d3d78eec93-2",
-            "file": "src/app/sec23-host-listeners/credit-card.directive.ts",
-            "type": "directive",
-            "description": "",
-            "sourceCode": "import { Directive, HostListener } from '@angular/core';\n\n@Directive({\n  selector: '[appCreditCard]',\n})\nexport class CreditCardDirective {\n  @HostListener('input', ['$event']) onKeyDown(event: KeyboardEvent): void {\n    const input = event.target as HTMLInputElement;\n\n    let trimmed = input.value.replace(/\\s+/g, '');\n    if (trimmed.length > 16) {\n      trimmed = trimmed.substr(0, 16);\n    }\n\n    //  Fix Me - Strict types and lint should catch this implicit any...\n    const numbers = [];\n\n    for (let i = 0; i < trimmed.length; i += 4) {\n      numbers.push(trimmed.substr(i, 4));\n    }\n\n    input.value = numbers.join(' ');\n  }\n}\n",
-            "selector": "[appCreditCard]",
-            "providers": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "hostBindings": [],
-            "hostListeners": [
-                {
-                    "name": "input",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "KeyboardEvent"
-                        }
-                    ],
-                    "argsDecorator": [
-                        "$event"
-                    ],
-                    "line": 7
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
             "isDuplicate": true,
             "duplicateId": 2,
             "duplicateName": "CreditCardDirective-2"
@@ -1357,265 +1357,7 @@
         },
         {
             "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-4fd6e45b53db8816392bdbbe8c17d9b7-5",
-            "file": "src/app/sec05-content-children-and-query-list/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./auth-form.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 26,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "authRememberList",
-                    "defaultValue": "null",
-                    "type": "QueryList<AuthRememberComponent> | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 24,
-                    "decorators": [
-                        {
-                            "name": "ContentChildren",
-                            "stringifiedArguments": "AuthRememberComponent"
-                        }
-                    ]
-                },
-                {
-                    "name": "showOne",
-                    "defaultValue": "new Observable<boolean>()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 19
-                },
-                {
-                    "name": "showThree",
-                    "defaultValue": "new Observable<boolean>()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 21
-                },
-                {
-                    "name": "showTwo",
-                    "defaultValue": "new Observable<boolean>()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 20
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngAfterContentInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 28
-                },
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 46,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  ContentChildren,\n  EventEmitter,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent implements AfterContentInit {\n  showOne = new Observable<boolean>();\n  showTwo = new Observable<boolean>();\n  showThree = new Observable<boolean>();\n\n  @ContentChildren(AuthRememberComponent)\n  authRememberList: QueryList<AuthRememberComponent> | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngAfterContentInit(): void {\n    console.log('===> ngAfterContentInit', this.authRememberList);\n    if (this.authRememberList) {\n      console.log(this.authRememberList);\n\n      this.authRememberList.forEach((item, index) => {\n        console.log(`Item #${index}: `, item);\n        if (index === 0) {\n          this.showOne = item.checked as Observable<boolean>;\n        } else if (index === 1) {\n          this.showTwo = item.checked as Observable<boolean>;\n        } else if (index === 2) {\n          this.showThree = item.checked as Observable<boolean>;\n        }\n      });\n    }\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "implements": [
-                "AfterContentInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 5,
-            "duplicateName": "AuthFormComponent-5",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <div *ngIf=\"showOne | async\">\n      Show One!\n    </div>\n\n    <div *ngIf=\"showTwo | async\">\n      Show Two!\n    </div>\n\n    <div *ngIf=\"showThree | async\">\n      Show Three!\n    </div>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-3f99ef2de40e1eaeae8bb9452c771979-6",
-            "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./auth-form.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 34,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "authMessage",
-                    "defaultValue": "null",
-                    "type": "AuthMessageComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 29,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
-                        }
-                    ]
-                },
-                {
-                    "name": "authRemember",
-                    "defaultValue": "null",
-                    "type": "AuthRememberComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 32,
-                    "decorators": [
-                        {
-                            "name": "ContentChild",
-                            "stringifiedArguments": "AuthRememberComponent"
-                        }
-                    ]
-                },
-                {
-                    "name": "email",
-                    "defaultValue": "null",
-                    "type": "ElementRef | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 26,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'email'"
-                        }
-                    ]
-                },
-                {
-                    "name": "showMessage",
-                    "defaultValue": "new Observable<boolean>()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 24
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngAfterContentInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 56
-                },
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 45
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 36
-                },
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 72,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    //  Note: This will cause 'expression changed after checked' error\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log(this.authMessage);\n\n    console.log(`Email: `, this.email);\n  }\n\n  ngAfterContentInit(): void {\n    //  console.log('===> ngAfterContentInit', this.authRemember);\n\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n\n    //  Note: This is null, even though Todd shows it working. Static?\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log('Auth Message: ', this.authMessage);\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "implements": [
-                "OnInit",
-                "AfterViewInit",
-                "AfterContentInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 6,
-            "duplicateName": "AuthFormComponent-6",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-453a6e81d51f48bb34720737159905fc-7",
+            "id": "component-AuthFormComponent-453a6e81d51f48bb34720737159905fc-5",
             "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1766,13 +1508,566 @@
                 "AfterContentInit"
             ],
             "isDuplicate": true,
-            "duplicateId": 7,
-            "duplicateName": "AuthFormComponent-7",
+            "duplicateId": 5,
+            "duplicateName": "AuthFormComponent-5",
             "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showOne | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showTwo | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <app-auth-message\n      [style.display]=\"(showThree | async) ? 'inherit' : 'none'\"\n    ></app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
         },
         {
             "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-93ecc5bab409e25dc19ffad61b649874-8",
+            "id": "component-AuthFormComponent-5a524bc2a875eccf2a8e5d879a3f7042-6",
+            "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [
+                "\n      .email {\n        border-color: #9f72e6;\n      }\n    "
+            ],
+            "templateUrl": [
+                "./auth-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 40,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "authMessage",
+                    "defaultValue": "null",
+                    "type": "AuthMessageComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 35,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
+                        }
+                    ]
+                },
+                {
+                    "name": "authRemember",
+                    "defaultValue": "null",
+                    "type": "AuthRememberComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 38,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "AuthRememberComponent"
+                        }
+                    ]
+                },
+                {
+                    "name": "email",
+                    "defaultValue": "null",
+                    "type": "ElementRef<HTMLInputElement> | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'email'"
+                        }
+                    ]
+                },
+                {
+                    "name": "showMessage",
+                    "defaultValue": "new Observable<boolean>()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 58
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 51
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [\n    `\n      .email {\n        border-color: #9f72e6;\n      }\n    `,\n  ],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef<HTMLInputElement> | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access authMessage ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    console.log(`Email: `, this.email);\n    this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');\n    this.email?.nativeElement.classList.add('email');\n    this.email?.nativeElement.focus();\n  }\n\n  ngAfterContentInit(): void {\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .email {\n        border-color: #9f72e6;\n      }\n    \n",
+            "implements": [
+                "OnInit",
+                "AfterViewInit",
+                "AfterContentInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 6,
+            "duplicateName": "AuthFormComponent-6",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-3f99ef2de40e1eaeae8bb9452c771979-7",
+            "file": "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./auth-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 34,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "authMessage",
+                    "defaultValue": "null",
+                    "type": "AuthMessageComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
+                        }
+                    ]
+                },
+                {
+                    "name": "authRemember",
+                    "defaultValue": "null",
+                    "type": "AuthRememberComponent | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 32,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "AuthRememberComponent"
+                        }
+                    ]
+                },
+                {
+                    "name": "email",
+                    "defaultValue": "null",
+                    "type": "ElementRef | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'email'"
+                        }
+                    ]
+                },
+                {
+                    "name": "showMessage",
+                    "defaultValue": "new Observable<boolean>()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 72,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    //  Note: This will cause 'expression changed after checked' error\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log(this.authMessage);\n\n    console.log(`Email: `, this.email);\n  }\n\n  ngAfterContentInit(): void {\n    //  console.log('===> ngAfterContentInit', this.authRemember);\n\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n\n    //  Note: This is null, even though Todd shows it working. Static?\n    //\n    // if (this.authMessage) {\n    //   this.authMessage.days = 30;\n    // }\n    // console.log('Auth Message: ', this.authMessage);\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "OnInit",
+                "AfterViewInit",
+                "AfterContentInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 7,
+            "duplicateName": "AuthFormComponent-7",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-4fd6e45b53db8816392bdbbe8c17d9b7-8",
+            "file": "src/app/sec05-content-children-and-query-list/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./auth-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 26,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "authRememberList",
+                    "defaultValue": "null",
+                    "type": "QueryList<AuthRememberComponent> | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "decorators": [
+                        {
+                            "name": "ContentChildren",
+                            "stringifiedArguments": "AuthRememberComponent"
+                        }
+                    ]
+                },
+                {
+                    "name": "showOne",
+                    "defaultValue": "new Observable<boolean>()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "showThree",
+                    "defaultValue": "new Observable<boolean>()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "showTwo",
+                    "defaultValue": "new Observable<boolean>()",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 46,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  AfterContentInit,\n  Component,\n  ContentChildren,\n  EventEmitter,\n  Output,\n  QueryList,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent implements AfterContentInit {\n  showOne = new Observable<boolean>();\n  showTwo = new Observable<boolean>();\n  showThree = new Observable<boolean>();\n\n  @ContentChildren(AuthRememberComponent)\n  authRememberList: QueryList<AuthRememberComponent> | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngAfterContentInit(): void {\n    console.log('===> ngAfterContentInit', this.authRememberList);\n    if (this.authRememberList) {\n      console.log(this.authRememberList);\n\n      this.authRememberList.forEach((item, index) => {\n        console.log(`Item #${index}: `, item);\n        if (index === 0) {\n          this.showOne = item.checked as Observable<boolean>;\n        } else if (index === 1) {\n          this.showTwo = item.checked as Observable<boolean>;\n        } else if (index === 2) {\n          this.showThree = item.checked as Observable<boolean>;\n        }\n      });\n    }\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "AfterContentInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 8,
+            "duplicateName": "AuthFormComponent-8",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <div *ngIf=\"showOne | async\">\n      Show One!\n    </div>\n\n    <div *ngIf=\"showTwo | async\">\n      Show Two!\n    </div>\n\n    <div *ngIf=\"showThree | async\">\n      Show Three!\n    </div>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-2dc87027cd0b2cc6ddede1c8b43bd5dd-9",
+            "file": "src/app/sec11-dynamic-components-with-component-factory-resolver/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./auth-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 10,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent {\n  @Output() submitted = new EventEmitter<User>();\n\n  constructor() {}\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 10
+            },
+            "isDuplicate": true,
+            "duplicateId": 9,
+            "duplicateName": "AuthFormComponent-9",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <h3>Login</h3>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <button type=\"submit\">Login</button>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-eff3b54a2eaa37ae6716281c88c14075-10",
+            "file": "src/app/sec12-dynamic-component-and-input-data/auth-form/auth-form.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-auth-form",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./auth-form.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "submitted",
+                    "defaultValue": "new EventEmitter<User>()",
+                    "line": 12,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'Login'",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onSubmit",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "User"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "User",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent {\n  title = 'Login';\n\n  @Output() submitted = new EventEmitter<User>();\n\n  constructor() {}\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 12
+            },
+            "isDuplicate": true,
+            "duplicateId": 10,
+            "duplicateName": "AuthFormComponent-10",
+            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <h3>{{ title }}</h3>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <button type=\"submit\">Login</button>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "AuthFormComponent",
+            "id": "component-AuthFormComponent-93ecc5bab409e25dc19ffad61b649874-11",
             "file": "src/app/sec10-platform-agnostic-renderer/auth-form/auth-form.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1926,301 +2221,6 @@
                     }
                 ]
             },
-            "implements": [
-                "OnInit",
-                "AfterViewInit",
-                "AfterContentInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 8,
-            "duplicateName": "AuthFormComponent-8",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <ng-content select=\"h3\"></ng-content>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <ng-content select=\"app-auth-remember\"></ng-content>\n\n    <app-auth-message\n      [style.display]=\"(showMessage | async) ? 'inherit' : 'none'\"\n    >\n    </app-auth-message>\n\n    <ng-content select=\"button\"></ng-content>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-2dc87027cd0b2cc6ddede1c8b43bd5dd-9",
-            "file": "src/app/sec11-dynamic-components-with-component-factory-resolver/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./auth-form.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 10,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 14,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent {\n  @Output() submitted = new EventEmitter<User>();\n\n  constructor() {}\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 10
-            },
-            "isDuplicate": true,
-            "duplicateId": 9,
-            "duplicateName": "AuthFormComponent-9",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <h3>Login</h3>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <button type=\"submit\">Login</button>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-eff3b54a2eaa37ae6716281c88c14075-10",
-            "file": "src/app/sec12-dynamic-component-and-input-data/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [],
-            "templateUrl": [
-                "./auth-form.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 12,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "title",
-                    "defaultValue": "'Login'",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 10
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 16,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Output } from '@angular/core';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [],\n})\nexport class AuthFormComponent {\n  title = 'Login';\n\n  @Output() submitted = new EventEmitter<User>();\n\n  constructor() {}\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 12
-            },
-            "isDuplicate": true,
-            "duplicateId": 10,
-            "duplicateName": "AuthFormComponent-10",
-            "templateData": "<div>\n  <form (ngSubmit)=\"onSubmit(form.value)\" #form=\"ngForm\">\n    <h3>{{ title }}</h3>\n    <label for=\"email\">\n      Email Address\n      <input type=\"text\" name=\"email\" ngModel #email />\n    </label>\n    <label for=\"password \">\n      Password\n      <input type=\"text\" name=\"password\" ngModel />\n    </label>\n    <button type=\"submit\">Login</button>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "AuthFormComponent",
-            "id": "component-AuthFormComponent-5a524bc2a875eccf2a8e5d879a3f7042-11",
-            "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-auth-form",
-            "styleUrls": [],
-            "styles": [
-                "\n      .email {\n        border-color: #9f72e6;\n      }\n    "
-            ],
-            "templateUrl": [
-                "./auth-form.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [
-                {
-                    "name": "submitted",
-                    "defaultValue": "new EventEmitter<User>()",
-                    "line": 40,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "authMessage",
-                    "defaultValue": "null",
-                    "type": "AuthMessageComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 35,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "AuthMessageComponent, {static: true}"
-                        }
-                    ]
-                },
-                {
-                    "name": "authRemember",
-                    "defaultValue": "null",
-                    "type": "AuthRememberComponent | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 38,
-                    "decorators": [
-                        {
-                            "name": "ContentChild",
-                            "stringifiedArguments": "AuthRememberComponent"
-                        }
-                    ]
-                },
-                {
-                    "name": "email",
-                    "defaultValue": "null",
-                    "type": "ElementRef<HTMLInputElement> | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 32,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'email'"
-                        }
-                    ]
-                },
-                {
-                    "name": "showMessage",
-                    "defaultValue": "new Observable<boolean>()",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 30
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngAfterContentInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 58
-                },
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 51
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 42
-                },
-                {
-                    "name": "onSubmit",
-                    "args": [
-                        {
-                            "name": "value",
-                            "type": "User"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 65,
-                    "jsdoctags": [
-                        {
-                            "name": "value",
-                            "type": "User",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  AfterViewInit,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\nimport { Observable } from 'rxjs';\nimport { AuthRememberComponent } from '../../sec03-projecting-and-binding-to-components/auth-form/auth-remember.component';\nimport { AuthMessageComponent } from '../../shared/components/auth-message/auth-message.component';\nimport { User } from '../../shared/user';\n\n@Component({\n  selector: 'app-auth-form',\n  templateUrl: './auth-form.component.html',\n  styles: [\n    `\n      .email {\n        border-color: #9f72e6;\n      }\n    `,\n  ],\n})\nexport class AuthFormComponent\n  implements OnInit, AfterViewInit, AfterContentInit {\n  showMessage = new Observable<boolean>();\n\n  @ViewChild('email') email: ElementRef<HTMLInputElement> | null = null;\n\n  @ViewChild(AuthMessageComponent, { static: true })\n  authMessage: AuthMessageComponent | null = null;\n\n  @ContentChild(AuthRememberComponent)\n  authRemember: AuthRememberComponent | null = null;\n\n  @Output() submitted = new EventEmitter<User>();\n\n  ngOnInit(): void {\n    //  Note: I can access authMessage ViewChild here because I made it { static: true }\n    //\n    if (this.authMessage) {\n      this.authMessage.days = 30;\n    }\n    console.log(this.authMessage);\n  }\n\n  ngAfterViewInit(): void {\n    console.log(`Email: `, this.email);\n    this.email?.nativeElement.setAttribute('placeholder', 'Enter your email');\n    this.email?.nativeElement.classList.add('email');\n    this.email?.nativeElement.focus();\n  }\n\n  ngAfterContentInit(): void {\n    if (this.authRemember) {\n      console.log(this.authRemember);\n      this.showMessage = this.authRemember.checked as Observable<boolean>;\n    }\n  }\n\n  onSubmit(value: User): void {\n    this.submitted.emit(value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "\n      .email {\n        border-color: #9f72e6;\n      }\n    \n",
             "implements": [
                 "OnInit",
                 "AfterViewInit",
@@ -3180,7 +3180,54 @@
         },
         {
             "name": "ExampleComponent",
-            "id": "component-ExampleComponent-39f3986f9f1beabaafc83b767ab71763",
+            "id": "component-ExampleComponent-676d6d23410a928e1f55895adc1e534f",
+            "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-example",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div>\n  <ng-container *ngTemplateOutlet=\"tmpl\"></ng-container>\n  <ng-template #tmpl>\n    Todd Motto : England, UK\n  </ng-template>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-example',\n  template: `\n    <div>\n      <ng-container *ngTemplateOutlet=\"tmpl\"></ng-container>\n      <ng-template #tmpl>\n        Todd Motto : England, UK\n      </ng-template>\n    </div>\n  `,\n  styles: [],\n})\nexport class ExampleComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 15
+            },
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "ExampleComponent",
+            "id": "component-ExampleComponent-39f3986f9f1beabaafc83b767ab71763-1",
             "file": "src/app/sec19-using-ngtemplateoutlet-with-context/example.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3229,53 +3276,6 @@
                 "description": "",
                 "args": [],
                 "line": 20
-            },
-            "implements": [
-                "OnInit"
-            ]
-        },
-        {
-            "name": "ExampleComponent",
-            "id": "component-ExampleComponent-676d6d23410a928e1f55895adc1e534f-1",
-            "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-example",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<div>\n  <ng-container *ngTemplateOutlet=\"tmpl\"></ng-container>\n  <ng-template #tmpl>\n    Todd Motto : England, UK\n  </ng-template>\n</div>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 18
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-example',\n  template: `\n    <div>\n      <ng-container *ngTemplateOutlet=\"tmpl\"></ng-container>\n      <ng-template #tmpl>\n        Todd Motto : England, UK\n      </ng-template>\n    </div>\n  `,\n  styles: [],\n})\nexport class ExampleComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 15
             },
             "implements": [
                 "OnInit"
@@ -3442,86 +3442,7 @@
         },
         {
             "name": "ExampleComponent",
-            "id": "component-ExampleComponent-d2dc7f95350e4cebfa1bcf905acd4140-4",
-            "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-example",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<div>\n  <div #entry>\n    <ng-template #tmpl let-name let-location=\"location\">\n      {{ name }} : {{ location }}\n    </ng-template>\n  </div>\n</div>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "entry",
-                    "defaultValue": "null",
-                    "type": "ViewContainerRef | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 26,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'entry', {read: ViewContainerRef}"
-                        }
-                    ]
-                },
-                {
-                    "name": "tmpl",
-                    "defaultValue": "null",
-                    "type": "TemplateRef<unknown> | null",
-                    "optional": false,
-                    "description": "",
-                    "line": 23,
-                    "decorators": [
-                        {
-                            "name": "ViewChild",
-                            "stringifiedArguments": "'tmpl'"
-                        }
-                    ]
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "ngAfterViewInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 30
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  TemplateRef,\n  ViewChild,\n  ViewContainerRef,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-example',\n  template: `\n    <div>\n      <div #entry>\n        <ng-template #tmpl let-name let-location=\"location\">\n          {{ name }} : {{ location }}\n        </ng-template>\n      </div>\n    </div>\n  `,\n  styles: [],\n})\nexport class ExampleComponent implements AfterViewInit {\n  @ViewChild('tmpl') tmpl: TemplateRef<unknown> | null = null;\n\n  @ViewChild('entry', { read: ViewContainerRef })\n  entry: ViewContainerRef | null = null;\n\n  constructor() {}\n\n  ngAfterViewInit(): void {\n    if (this.tmpl) {\n      this.entry?.createEmbeddedView(this.tmpl, {\n        $implicit: 'Motto Todd',\n        location: 'UK, England',\n      });\n    }\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 26
-            },
-            "implements": [
-                "AfterViewInit"
-            ],
-            "isDuplicate": true,
-            "duplicateId": 4,
-            "duplicateName": "ExampleComponent-4"
-        },
-        {
-            "name": "ExampleComponent",
-            "id": "component-ExampleComponent-89fd74cf93a629ecf5064a3d694fab97-5",
+            "id": "component-ExampleComponent-89fd74cf93a629ecf5064a3d694fab97-4",
             "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3609,6 +3530,85 @@
             },
             "implements": [
                 "OnInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 4,
+            "duplicateName": "ExampleComponent-4"
+        },
+        {
+            "name": "ExampleComponent",
+            "id": "component-ExampleComponent-d2dc7f95350e4cebfa1bcf905acd4140-5",
+            "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-example",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div>\n  <div #entry>\n    <ng-template #tmpl let-name let-location=\"location\">\n      {{ name }} : {{ location }}\n    </ng-template>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "entry",
+                    "defaultValue": "null",
+                    "type": "ViewContainerRef | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'entry', {read: ViewContainerRef}"
+                        }
+                    ]
+                },
+                {
+                    "name": "tmpl",
+                    "defaultValue": "null",
+                    "type": "TemplateRef<unknown> | null",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'tmpl'"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import {\n  AfterViewInit,\n  Component,\n  TemplateRef,\n  ViewChild,\n  ViewContainerRef,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-example',\n  template: `\n    <div>\n      <div #entry>\n        <ng-template #tmpl let-name let-location=\"location\">\n          {{ name }} : {{ location }}\n        </ng-template>\n      </div>\n    </div>\n  `,\n  styles: [],\n})\nexport class ExampleComponent implements AfterViewInit {\n  @ViewChild('tmpl') tmpl: TemplateRef<unknown> | null = null;\n\n  @ViewChild('entry', { read: ViewContainerRef })\n  entry: ViewContainerRef | null = null;\n\n  constructor() {}\n\n  ngAfterViewInit(): void {\n    if (this.tmpl) {\n      this.entry?.createEmbeddedView(this.tmpl, {\n        $implicit: 'Motto Todd',\n        location: 'UK, England',\n      });\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 26
+            },
+            "implements": [
+                "AfterViewInit"
             ],
             "isDuplicate": true,
             "duplicateId": 5,
@@ -3991,6 +3991,69 @@
         {
             "name": "StockBranchComponent",
             "id": "component-StockBranchComponent-340649c64cd0f8dbcedbe12f58c7a247",
+            "file": "src/app/sec32-binding-formcontrols-select/components/stock-branch/stock-branch.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-stock-branch",
+            "styleUrls": [
+                "./stock-branch.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./stock-branch.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "parent",
+                    "defaultValue": "new FormGroup({})",
+                    "line": 10,
+                    "type": "FormGroup"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-branch',\n  templateUrl: './stock-branch.component.html',\n  styleUrls: ['./stock-branch.component.scss'],\n})\nexport class StockBranchComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\r\n  border-bottom: 1px solid #ccc;\r\n  margin: 0 0 20px;\r\n  padding: 0 0 20px;\r\n  display: block;\r\n}\r\n\r\n.error {\r\n  background: #b52d30;\r\n  color: #fff;\r\n  font-weight: 500;\r\n  font-size: 12px;\r\n  text-transform: uppercase;\r\n  border-radius: 0 0 3px 3px;\r\n  line-height: 1;\r\n  padding: 6px 10px;\r\n  margin-top: -1px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n  // display: block;\r\n  // border: none;\r\n  // background: #fff;\r\n  // font-size: 15px;\r\n  // padding: 6px 30px 6px 10px;\r\n  // border-radius: 1px;\r\n  // border: 1px solid #ccc;\r\n  margin-top: 10px;\r\n  width: 100%;\r\n}\r\n",
+                    "styleUrl": "./stock-branch.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 10
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"stock-branch\" [formGroup]=\"parent\">\n  <div formGroupName=\"store\">\n    <input type=\"text\" placeholder=\"Branch ID\" formControlName=\"branch\" />\n    <input type=\"text\" placeholder=\"Manager Code\" formControlName=\"code\" />\n  </div>\n</div>\n"
+        },
+        {
+            "name": "StockBranchComponent",
+            "id": "component-StockBranchComponent-340649c64cd0f8dbcedbe12f58c7a247-1",
             "file": "src/app/sec31-componentizing-formgroups/components/stock-branch/stock-branch.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4036,69 +4099,6 @@
             "styleUrlsData": [
                 {
                     "data": ":host {\r\n  border-bottom: 1px solid #ccc;\r\n  margin: 0 0 20px;\r\n  padding: 0 0 20px;\r\n  display: block;\r\n}\r\n\r\n.error {\r\n  background: #b52d30;\r\n  color: #fff;\r\n  font-weight: 500;\r\n  font-size: 12px;\r\n  text-transform: uppercase;\r\n  border-radius: 0 0 3px 3px;\r\n  line-height: 1;\r\n  padding: 6px 10px;\r\n  margin-top: -1px;\r\n}\r\n",
-                    "styleUrl": "./stock-branch.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 10
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<div class=\"stock-branch\" [formGroup]=\"parent\">\n  <div formGroupName=\"store\">\n    <input type=\"text\" placeholder=\"Branch ID\" formControlName=\"branch\" />\n    <input type=\"text\" placeholder=\"Manager Code\" formControlName=\"code\" />\n  </div>\n</div>\n"
-        },
-        {
-            "name": "StockBranchComponent",
-            "id": "component-StockBranchComponent-340649c64cd0f8dbcedbe12f58c7a247-1",
-            "file": "src/app/sec33-formarray/components/stock-branch/stock-branch.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-stock-branch",
-            "styleUrls": [
-                "./stock-branch.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./stock-branch.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "parent",
-                    "defaultValue": "new FormGroup({})",
-                    "line": 10,
-                    "type": "FormGroup"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 14
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-branch',\n  templateUrl: './stock-branch.component.html',\n  styleUrls: ['./stock-branch.component.scss'],\n})\nexport class StockBranchComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ":host {\r\n  border-bottom: 1px solid #ccc;\r\n  margin: 0 0 20px;\r\n  padding: 0 0 20px;\r\n  display: block;\r\n}\r\n\r\n.error {\r\n  background: #b52d30;\r\n  color: #fff;\r\n  font-weight: 500;\r\n  font-size: 12px;\r\n  text-transform: uppercase;\r\n  border-radius: 0 0 3px 3px;\r\n  line-height: 1;\r\n  padding: 6px 10px;\r\n  margin-top: -1px;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n  // display: block;\r\n  // border: none;\r\n  // background: #fff;\r\n  // font-size: 15px;\r\n  // padding: 6px 30px 6px 10px;\r\n  // border-radius: 1px;\r\n  // border: 1px solid #ccc;\r\n  margin-top: 10px;\r\n  width: 100%;\r\n}\r\n",
                     "styleUrl": "./stock-branch.component.scss"
                 }
             ],
@@ -4186,7 +4186,7 @@
         {
             "name": "StockBranchComponent",
             "id": "component-StockBranchComponent-340649c64cd0f8dbcedbe12f58c7a247-3",
-            "file": "src/app/sec32-binding-formcontrols-select/components/stock-branch/stock-branch.component.ts",
+            "file": "src/app/sec33-formarray/components/stock-branch/stock-branch.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -4307,7 +4307,74 @@
         },
         {
             "name": "StockInventoryComponent",
-            "id": "component-StockInventoryComponent-e991b9c633b4f690f8471c632207adb8-1",
+            "id": "component-StockInventoryComponent-ef23a462e3f8a3a847743245da6688fb-1",
+            "file": "src/app/sec32-binding-formcontrols-select/containers/stock-inventory/stock-inventory.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-stock-inventory",
+            "styleUrls": [
+                "./stock-inventory.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./stock-inventory.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "form",
+                    "defaultValue": "new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: new FormGroup({\n      productId: new FormControl(''),\n      quantity: new FormControl(10),\n    }),\n    stock: new FormArray([]),\n  })",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "products",
+                    "defaultValue": "[\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ]",
+                    "type": "Product[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 32
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { FormArray, FormControl, FormGroup } from '@angular/forms';\nimport { Product } from '../../../shared/interfaces/product';\n\n@Component({\n  selector: 'app-stock-inventory',\n  templateUrl: './stock-inventory.component.html',\n  styleUrls: ['./stock-inventory.component.scss'],\n})\nexport class StockInventoryComponent {\n  products: Product[] = [\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ];\n\n  //  Can initiate form up here because it is a static form group\n  form = new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: new FormGroup({\n      productId: new FormControl(''),\n      quantity: new FormControl(10),\n    }),\n    stock: new FormArray([]),\n  });\n\n  onSubmit(): void {\n    console.log('Submit: ', this.form.value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./stock-inventory.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "StockInventoryComponent-1",
+            "templateData": "<div class=\"stock-inventory\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n    <app-stock-branch [parent]=\"form\"></app-stock-branch>\n\n    <app-stock-selector\n      [parent]=\"form\"\n      [products]=\"products\"\n    ></app-stock-selector>\n\n    <app-stock-products [parent]=\"form\"></app-stock-products>\n\n    <div class=\"stock-inventory__buttons\">\n      <button type=\"submit\" [disabled]=\"form.invalid\">\n        Order Stock\n      </button>\n    </div>\n\n    <pre>{{ form.value | json }}</pre>\n  </form>\n</div>\n"
+        },
+        {
+            "name": "StockInventoryComponent",
+            "id": "component-StockInventoryComponent-e991b9c633b4f690f8471c632207adb8-2",
             "file": "src/app/sec31-componentizing-formgroups/containers/stock-inventory/stock-inventory.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4360,104 +4427,13 @@
             ],
             "stylesData": "",
             "isDuplicate": true,
-            "duplicateId": 1,
-            "duplicateName": "StockInventoryComponent-1",
+            "duplicateId": 2,
+            "duplicateName": "StockInventoryComponent-2",
             "templateData": "<div class=\"stock-inventory\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n    <!-- This will be the component split out -->\n    <app-stock-branch></app-stock-branch>\n    <app-stock-selector></app-stock-selector>\n    <app-stock-products></app-stock-products>\n\n    <div class=\"stock-inventory__buttons\">\n      <button type=\"submit\" [disabled]=\"form.invalid\">\n        Order Stock\n      </button>\n    </div>\n\n    <pre>{{ form.value | json }}</pre>\n  </form>\n</div>\n"
         },
         {
             "name": "StockInventoryComponent",
-            "id": "component-StockInventoryComponent-29f8a4a4b549283e790b269428434ada-2",
-            "file": "src/app/sec33-formarray/containers/stock-inventory/stock-inventory.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-stock-inventory",
-            "styleUrls": [
-                "./stock-inventory.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./stock-inventory.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "form",
-                    "defaultValue": "new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: this.createStock({} as Stock),\n    stock: new FormArray([\n      this.createStock({ productId: 1, quantity: 10 }),\n      this.createStock({ productId: 3, quantity: 50 }),\n    ]),\n  })",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 25
-                },
-                {
-                    "name": "products",
-                    "defaultValue": "[\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ]",
-                    "type": "Product[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 16
-                }
-            ],
-            "methodsClass": [
-                {
-                    "name": "createStock",
-                    "args": [
-                        {
-                            "name": "stock",
-                            "type": "Stock",
-                            "defaultValue": "{ productId: '', quantity: 10 }"
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "FormGroup",
-                    "typeParameters": [],
-                    "line": 37,
-                    "jsdoctags": [
-                        {
-                            "name": "stock",
-                            "type": "Stock",
-                            "defaultValue": "{ productId: '', quantity: 10 }",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "onSubmit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 47
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { FormArray, FormControl, FormGroup } from '@angular/forms';\nimport { Product } from '../../../shared/interfaces/product';\n\ninterface Stock {\n  productId: string | number;\n  quantity: number;\n}\n\n@Component({\n  selector: 'app-stock-inventory',\n  templateUrl: './stock-inventory.component.html',\n  styleUrls: ['./stock-inventory.component.scss'],\n})\nexport class StockInventoryComponent {\n  products: Product[] = [\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ];\n\n  //  Can initiate form up here because it is a static form group\n  form = new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: this.createStock({} as Stock),\n    stock: new FormArray([\n      this.createStock({ productId: 1, quantity: 10 }),\n      this.createStock({ productId: 3, quantity: 50 }),\n    ]),\n  });\n\n  createStock(stock: Stock = { productId: '', quantity: 10 }): FormGroup {\n    const productId = +stock.productId || '';\n    const quantity = stock.quantity;\n\n    return new FormGroup({\n      productId: new FormControl(productId),\n      quantity: new FormControl(quantity),\n    });\n  }\n\n  onSubmit(): void {\n    console.log('Submit: ', this.form.value);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./stock-inventory.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "isDuplicate": true,
-            "duplicateId": 2,
-            "duplicateName": "StockInventoryComponent-2",
-            "templateData": "<div class=\"stock-inventory\">\n  <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\n    <app-stock-branch [parent]=\"form\"></app-stock-branch>\n\n    <app-stock-selector\n      [parent]=\"form\"\n      [products]=\"products\"\n    ></app-stock-selector>\n\n    <app-stock-products [parent]=\"form\"></app-stock-products>\n\n    <div class=\"stock-inventory__buttons\">\n      <button type=\"submit\" [disabled]=\"form.invalid\">\n        Order Stock\n      </button>\n    </div>\n\n    <pre>{{ form.value | json }}</pre>\n  </form>\n</div>\n"
-        },
-        {
-            "name": "StockInventoryComponent",
-            "id": "component-StockInventoryComponent-a68c39b880705f432f48f918b682605b-3",
+            "id": "component-StockInventoryComponent-3828bf9ce18241ef0a03bf1c991241b6-3",
             "file": "src/app/sec34-formarray-add/containers/stock-inventory/stock-inventory.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4550,7 +4526,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55
+                    "line": 54
                 }
             ],
             "hostBindings": [],
@@ -4558,7 +4534,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { FormArray, FormControl, FormGroup } from '@angular/forms';\nimport { Product } from '../../../shared/interfaces/product';\nimport { RemovedStock } from '../../components/stock-products/stock-products.component';\nimport {\n  StockFormManager,\n  StockFormValue,\n} from '../../models/stock-form-manager';\n\n@Component({\n  selector: 'app-stock-inventory',\n  templateUrl: './stock-inventory.component.html',\n  styleUrls: ['./stock-inventory.component.scss'],\n})\nexport class StockInventoryComponent {\n  products: Product[] = [\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ];\n\n  //  Can initiate form up here because it is a static form group\n  formManager = new StockFormManager(\n    new FormGroup({\n      store: new FormGroup({\n        branch: new FormControl(''),\n        code: new FormControl(''),\n      }),\n      selector: StockFormManager.createStockFormGroup(),\n      stock: new FormArray([\n        StockFormManager.createStockFormGroup({ productId: '1', quantity: 10 }),\n        StockFormManager.createStockFormGroup({ productId: '3', quantity: 50 }),\n      ]),\n    })\n  );\n\n  form = this.formManager.form;\n\n  onAddStock(stock: StockFormValue): void {\n    console.log('onAddStock: ', stock);\n\n    const control = this.formManager.getStockFormArray();\n    control.push(StockFormManager.createStockFormGroup(stock));\n  }\n\n  onRemoveStock({ stockFormGroup, index }: RemovedStock): void {\n    console.log('Removing');\n    //  console.log(stockFormGroup, index);\n    const formArray = this.formManager.getStockFormArray();\n    formArray.removeAt(index);\n  }\n\n  onSubmit(): void {\n    console.log('Submit: ', this.form.value);\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { FormArray, FormControl, FormGroup } from '@angular/forms';\nimport { Product } from '../../../shared/interfaces/product';\nimport { RemovedStock } from '../../components/stock-products/stock-products.component';\nimport {\n  StockFormManager,\n  StockFormValue,\n} from '../../models/stock-form-manager';\n\n@Component({\n  selector: 'app-stock-inventory',\n  templateUrl: './stock-inventory.component.html',\n  styleUrls: ['./stock-inventory.component.scss'],\n})\nexport class StockInventoryComponent {\n  products: Product[] = [\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ];\n\n  //  Can initiate form up here because it is a static form group\n  formManager = new StockFormManager(\n    new FormGroup({\n      store: new FormGroup({\n        branch: new FormControl(''),\n        code: new FormControl(''),\n      }),\n      selector: StockFormManager.createStockFormGroup(),\n      stock: new FormArray([\n        StockFormManager.createStockFormGroup({ productId: '1', quantity: 10 }),\n        StockFormManager.createStockFormGroup({ productId: '3', quantity: 50 }),\n      ]),\n    })\n  );\n\n  form = this.formManager.form;\n\n  onAddStock(stock: StockFormValue): void {\n    console.log('onAddStock: ', stock);\n\n    const control = this.formManager.getStockFormArray();\n    control.push(StockFormManager.createStockFormGroup(stock));\n  }\n\n  onRemoveStock({ stockFormGroup, index }: RemovedStock): void {\n    console.log('Removing');\n    const formArray = this.formManager.getStockFormArray();\n    formArray.removeAt(index);\n  }\n\n  onSubmit(): void {\n    console.log('Submit: ', this.form.value);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4574,8 +4550,8 @@
         },
         {
             "name": "StockInventoryComponent",
-            "id": "component-StockInventoryComponent-ef23a462e3f8a3a847743245da6688fb-4",
-            "file": "src/app/sec32-binding-formcontrols-select/containers/stock-inventory/stock-inventory.component.ts",
+            "id": "component-StockInventoryComponent-29f8a4a4b549283e790b269428434ada-4",
+            "file": "src/app/sec33-formarray/containers/stock-inventory/stock-inventory.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -4595,11 +4571,11 @@
             "propertiesClass": [
                 {
                     "name": "form",
-                    "defaultValue": "new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: new FormGroup({\n      productId: new FormControl(''),\n      quantity: new FormControl(10),\n    }),\n    stock: new FormArray([]),\n  })",
+                    "defaultValue": "new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: this.createStock({} as Stock),\n    stock: new FormArray([\n      this.createStock({ productId: 1, quantity: 10 }),\n      this.createStock({ productId: 3, quantity: 50 }),\n    ]),\n  })",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 25
                 },
                 {
                     "name": "products",
@@ -4607,17 +4583,41 @@
                     "type": "Product[]",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 16
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "createStock",
+                    "args": [
+                        {
+                            "name": "stock",
+                            "type": "Stock",
+                            "defaultValue": "{ productId: '', quantity: 10 }"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "FormGroup",
+                    "typeParameters": [],
+                    "line": 37,
+                    "jsdoctags": [
+                        {
+                            "name": "stock",
+                            "type": "Stock",
+                            "defaultValue": "{ productId: '', quantity: 10 }",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "onSubmit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32
+                    "line": 47
                 }
             ],
             "hostBindings": [],
@@ -4625,7 +4625,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { FormArray, FormControl, FormGroup } from '@angular/forms';\nimport { Product } from '../../../shared/interfaces/product';\n\n@Component({\n  selector: 'app-stock-inventory',\n  templateUrl: './stock-inventory.component.html',\n  styleUrls: ['./stock-inventory.component.scss'],\n})\nexport class StockInventoryComponent {\n  products: Product[] = [\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ];\n\n  //  Can initiate form up here because it is a static form group\n  form = new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: new FormGroup({\n      productId: new FormControl(''),\n      quantity: new FormControl(10),\n    }),\n    stock: new FormArray([]),\n  });\n\n  onSubmit(): void {\n    console.log('Submit: ', this.form.value);\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { FormArray, FormControl, FormGroup } from '@angular/forms';\nimport { Product } from '../../../shared/interfaces/product';\n\ninterface Stock {\n  productId: string | number;\n  quantity: number;\n}\n\n@Component({\n  selector: 'app-stock-inventory',\n  templateUrl: './stock-inventory.component.html',\n  styleUrls: ['./stock-inventory.component.scss'],\n})\nexport class StockInventoryComponent {\n  products: Product[] = [\n    { id: 1, price: 2800, name: 'MacBook Pro' },\n    { id: 2, price: 50, name: 'USB-C Adaptor' },\n    { id: 3, price: 400, name: 'iPod' },\n    { id: 4, price: 900, name: 'iPhone' },\n    { id: 5, price: 600, name: 'Apple Watch' },\n  ];\n\n  //  Can initiate form up here because it is a static form group\n  form = new FormGroup({\n    store: new FormGroup({\n      branch: new FormControl(''),\n      code: new FormControl(''),\n    }),\n    selector: this.createStock({} as Stock),\n    stock: new FormArray([\n      this.createStock({ productId: 1, quantity: 10 }),\n      this.createStock({ productId: 3, quantity: 50 }),\n    ]),\n  });\n\n  createStock(stock: Stock = { productId: '', quantity: 10 }): FormGroup {\n    const productId = +stock.productId || '';\n    const quantity = stock.quantity;\n\n    return new FormGroup({\n      productId: new FormControl(productId),\n      quantity: new FormControl(quantity),\n    });\n  }\n\n  onSubmit(): void {\n    console.log('Submit: ', this.form.value);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4683,7 +4683,7 @@
         {
             "name": "StockProductsComponent",
             "id": "component-StockProductsComponent-ef207ae4fb3408fcfb856c5abd720561",
-            "file": "src/app/sec31-componentizing-formgroups/components/stock-products/stock-products.component.ts",
+            "file": "src/app/sec32-binding-formcontrols-select/components/stock-products/stock-products.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -4745,8 +4745,8 @@
         },
         {
             "name": "StockProductsComponent",
-            "id": "component-StockProductsComponent-1c9a0fff6ef3757367e7c9b9d268022d-1",
-            "file": "src/app/sec33-formarray/components/stock-products/stock-products.component.ts",
+            "id": "component-StockProductsComponent-ef207ae4fb3408fcfb856c5abd720561-1",
+            "file": "src/app/sec31-componentizing-formgroups/components/stock-products/stock-products.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -4778,7 +4778,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18
+                    "line": 14
                 }
             ],
             "hostBindings": [],
@@ -4786,7 +4786,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { AbstractControl, FormArray, FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-products',\n  templateUrl: './stock-products.component.html',\n  styleUrls: ['./stock-products.component.scss'],\n})\nexport class StockProductsComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  get stocks(): AbstractControl[] {\n    return (this.parent.get('stock') as FormArray).controls;\n  }\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-products',\n  templateUrl: './stock-products.component.html',\n  styleUrls: ['./stock-products.component.scss'],\n})\nexport class StockProductsComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4799,26 +4799,15 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 14
+                "line": 10
             },
             "implements": [
                 "OnInit"
             ],
-            "accessors": {
-                "stocks": {
-                    "name": "stocks",
-                    "getSignature": {
-                        "name": "stocks",
-                        "type": "[]",
-                        "returnType": "AbstractControl[]",
-                        "line": 12
-                    }
-                }
-            },
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "StockProductsComponent-1",
-            "templateData": "<div class=\"stock-product\" [formGroup]=\"parent\">\n  <div formArrayName=\"stock\">\n    <div *ngFor=\"let stock of stocks; let i = index\">\n      <div class=\"stock-product__content\" [formGroupName]=\"i\">\n        <div class=\"stock-product__name\">\n          {{ stock.value.productId }}\n        </div>\n        <input\n          type=\"number\"\n          step=\"10\"\n          min=\"10\"\n          max=\"1000\"\n          formControlName=\"quantity\"\n        />\n        <button type=\"button\">\n          Remove\n        </button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"stock-product\" [formGroup]=\"parent\"></div>\n"
         },
         {
             "name": "StockProductsComponent",
@@ -4965,12 +4954,12 @@
             "isDuplicate": true,
             "duplicateId": 2,
             "duplicateName": "StockProductsComponent-2",
-            "templateData": "<div class=\"stock-product\" [formGroup]=\"parent\">\n  <!-- FormArray -->\n  <div formArrayName=\"stock\">\n    <div *ngFor=\"let stock of stocks; let i = index\">\n      <!-- FormGroup (items for FormArray) -->\n      <div class=\"stock-product__content\" [formGroupName]=\"i\">\n        <div class=\"stock-product__name\">\n          {{ stock.value.productId }}\n        </div>\n        <!-- FormControl -->\n        <input\n          type=\"number\"\n          step=\"10\"\n          min=\"10\"\n          max=\"1000\"\n          formControlName=\"quantity\"\n        />\n        <button type=\"button\" (click)=\"onRemove(stock, i)\">\n          Remove\n        </button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"stock-product\" [formGroup]=\"parent\">\n  <!-- FormArray -->\n  <div formArrayName=\"stock\">\n    <div *ngFor=\"let stock of stocks; let i = index\">\n      <!-- FormGroup (items for FormArray) -->\n      <div class=\"stock-product__content\" [formGroupName]=\"i\">\n        <div class=\"stock-product__name\">\n          {{ stock.value.productId }}\n        </div>\n\n        <!-- FormControl -->\n        <input\n          type=\"number\"\n          step=\"10\"\n          min=\"10\"\n          max=\"1000\"\n          formControlName=\"quantity\"\n        />\n\n        <button type=\"button\" (click)=\"onRemove(stock, i)\">\n          Remove\n        </button>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "StockProductsComponent",
-            "id": "component-StockProductsComponent-ef207ae4fb3408fcfb856c5abd720561-3",
-            "file": "src/app/sec32-binding-formcontrols-select/components/stock-products/stock-products.component.ts",
+            "id": "component-StockProductsComponent-1c9a0fff6ef3757367e7c9b9d268022d-3",
+            "file": "src/app/sec33-formarray/components/stock-products/stock-products.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -5002,7 +4991,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 14
+                    "line": 18
                 }
             ],
             "hostBindings": [],
@@ -5010,7 +4999,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-products',\n  templateUrl: './stock-products.component.html',\n  styleUrls: ['./stock-products.component.scss'],\n})\nexport class StockProductsComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { AbstractControl, FormArray, FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-products',\n  templateUrl: './stock-products.component.html',\n  styleUrls: ['./stock-products.component.scss'],\n})\nexport class StockProductsComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  get stocks(): AbstractControl[] {\n    return (this.parent.get('stock') as FormArray).controls;\n  }\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5023,83 +5012,31 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 10
+                "line": 14
             },
             "implements": [
                 "OnInit"
             ],
+            "accessors": {
+                "stocks": {
+                    "name": "stocks",
+                    "getSignature": {
+                        "name": "stocks",
+                        "type": "[]",
+                        "returnType": "AbstractControl[]",
+                        "line": 12
+                    }
+                }
+            },
             "isDuplicate": true,
             "duplicateId": 3,
             "duplicateName": "StockProductsComponent-3",
-            "templateData": "<div class=\"stock-product\" [formGroup]=\"parent\"></div>\n"
+            "templateData": "<div class=\"stock-product\" [formGroup]=\"parent\">\n  <div formArrayName=\"stock\">\n    <div *ngFor=\"let stock of stocks; let i = index\">\n      <div class=\"stock-product__content\" [formGroupName]=\"i\">\n        <div class=\"stock-product__name\">\n          {{ stock.value.productId }}\n        </div>\n        <input\n          type=\"number\"\n          step=\"10\"\n          min=\"10\"\n          max=\"1000\"\n          formControlName=\"quantity\"\n        />\n        <button type=\"button\">\n          Remove\n        </button>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "StockSelectorComponent",
-            "id": "component-StockSelectorComponent-5ea095ecd702aee731caf78ea61d409f",
-            "file": "src/app/sec31-componentizing-formgroups/components/stock-selector/stock-selector.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-stock-selector",
-            "styleUrls": [
-                "./stock-selector.component.scss"
-            ],
-            "styles": [],
-            "templateUrl": [
-                "./stock-selector.component.html"
-            ],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "parent",
-                    "defaultValue": "new FormGroup({})",
-                    "line": 10,
-                    "type": "FormGroup"
-                }
-            ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 14
-                }
-            ],
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "",
-            "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-selector',\n  templateUrl: './stock-selector.component.html',\n  styleUrls: ['./stock-selector.component.scss'],\n})\nexport class StockSelectorComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".stock-selector {\r\n  padding: 0 0 20px;\r\n  margin: 0 0 20px;\r\n  border-bottom: 1px solid #ccc;\r\n  position: relative;\r\n\r\n  &__error {\r\n    position: absolute;\r\n    background: #b52d30;\r\n    color: #fff;\r\n    font-weight: 500;\r\n    font-size: 12px;\r\n    text-transform: uppercase;\r\n    border-radius: 3px;\r\n    left: 0;\r\n    bottom: -10px;\r\n    line-height: 1;\r\n    padding: 6px 10px;\r\n\r\n    &:before {\r\n      width: 0;\r\n      height: 0;\r\n      border-style: solid;\r\n      border-width: 0 5px 5px 5px;\r\n      border-color: transparent transparent #b52d30 transparent;\r\n      content: \" \";\r\n      display: block;\r\n      position: absolute;\r\n      top: -5px;\r\n      left: 10px;\r\n    }\r\n  }\r\n\r\n  & > div {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n\r\n    select {\r\n      flex: 1 0;\r\n    }\r\n    button {\r\n      flex: 0 0 100px;\r\n      margin-left: 30px;\r\n    }\r\n    stock-counter {\r\n      flex: 0 0 50px;\r\n      margin-left: 30px;\r\n    }\r\n  }\r\n}\r\n",
-                    "styleUrl": "./stock-selector.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "args": [],
-                "line": 10
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<div class=\"stock-selector\" [formGroup]=\"parent\"></div>\n"
-        },
-        {
-            "name": "StockSelectorComponent",
-            "id": "component-StockSelectorComponent-cc78e94a8eb620143f3d2972762d5f42-1",
-            "file": "src/app/sec33-formarray/components/stock-selector/stock-selector.component.ts",
+            "id": "component-StockSelectorComponent-cc78e94a8eb620143f3d2972762d5f42",
+            "file": "src/app/sec32-binding-formcontrols-select/components/stock-selector/stock-selector.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -5163,10 +5100,73 @@
             "implements": [
                 "OnInit"
             ],
+            "templateData": "<div class=\"stock-selector\" [formGroup]=\"parent\">\n  <div formGroupName=\"selector\">\n    <select formControlName=\"productId\">\n      <option value=\"\">Select Stock</option>\n      <option *ngFor=\"let product of products\" [value]=\"product.id\">\n        {{ product.name }}\n      </option>\n    </select>\n\n    <input\n      type=\"number\"\n      step=\"10\"\n      min=\"10\"\n      max=\"1000\"\n      formControlName=\"quantity\"\n    />\n\n    <button type=\"button\">Add Stock</button>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "StockSelectorComponent",
+            "id": "component-StockSelectorComponent-5ea095ecd702aee731caf78ea61d409f-1",
+            "file": "src/app/sec31-componentizing-formgroups/components/stock-selector/stock-selector.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-stock-selector",
+            "styleUrls": [
+                "./stock-selector.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./stock-selector.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "parent",
+                    "defaultValue": "new FormGroup({})",
+                    "line": 10,
+                    "type": "FormGroup"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\n\n@Component({\n  selector: 'app-stock-selector',\n  templateUrl: './stock-selector.component.html',\n  styleUrls: ['./stock-selector.component.scss'],\n})\nexport class StockSelectorComponent implements OnInit {\n  @Input() parent = new FormGroup({});\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".stock-selector {\r\n  padding: 0 0 20px;\r\n  margin: 0 0 20px;\r\n  border-bottom: 1px solid #ccc;\r\n  position: relative;\r\n\r\n  &__error {\r\n    position: absolute;\r\n    background: #b52d30;\r\n    color: #fff;\r\n    font-weight: 500;\r\n    font-size: 12px;\r\n    text-transform: uppercase;\r\n    border-radius: 3px;\r\n    left: 0;\r\n    bottom: -10px;\r\n    line-height: 1;\r\n    padding: 6px 10px;\r\n\r\n    &:before {\r\n      width: 0;\r\n      height: 0;\r\n      border-style: solid;\r\n      border-width: 0 5px 5px 5px;\r\n      border-color: transparent transparent #b52d30 transparent;\r\n      content: \" \";\r\n      display: block;\r\n      position: absolute;\r\n      top: -5px;\r\n      left: 10px;\r\n    }\r\n  }\r\n\r\n  & > div {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n\r\n    select {\r\n      flex: 1 0;\r\n    }\r\n    button {\r\n      flex: 0 0 100px;\r\n      margin-left: 30px;\r\n    }\r\n    stock-counter {\r\n      flex: 0 0 50px;\r\n      margin-left: 30px;\r\n    }\r\n  }\r\n}\r\n",
+                    "styleUrl": "./stock-selector.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 10
+            },
+            "implements": [
+                "OnInit"
+            ],
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "StockSelectorComponent-1",
-            "templateData": "<div class=\"stock-selector\" [formGroup]=\"parent\">\n  <div formGroupName=\"selector\">\n    <select formControlName=\"productId\">\n      <option value=\"\">Select Stock</option>\n      <option *ngFor=\"let product of products\" [value]=\"product.id\">\n        {{ product.name }}\n      </option>\n    </select>\n\n    <input\n      type=\"number\"\n      step=\"10\"\n      min=\"10\"\n      max=\"1000\"\n      formControlName=\"quantity\"\n    />\n\n    <button type=\"button\">Add Stock</button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"stock-selector\" [formGroup]=\"parent\"></div>\n"
         },
         {
             "name": "StockSelectorComponent",
@@ -5311,7 +5311,7 @@
         {
             "name": "StockSelectorComponent",
             "id": "component-StockSelectorComponent-cc78e94a8eb620143f3d2972762d5f42-3",
-            "file": "src/app/sec32-binding-formcontrols-select/components/stock-selector/stock-selector.component.ts",
+            "file": "src/app/sec33-formarray/components/stock-selector/stock-selector.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -6007,7 +6007,11 @@
                 },
                 {
                     "type": "declarations",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "ExampleComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "imports",
@@ -6492,9 +6496,6 @@
                         },
                         {
                             "name": "StockProductsComponent"
-                        },
-                        {
-                            "name": "StockSelectorComponent"
                         }
                     ]
                 },
@@ -6531,6 +6532,9 @@
                         },
                         {
                             "name": "StockProductsComponent"
+                        },
+                        {
+                            "name": "StockSelectorComponent"
                         }
                     ]
                 },
@@ -6564,6 +6568,9 @@
                     "elements": [
                         {
                             "name": "StockBranchComponent"
+                        },
+                        {
+                            "name": "StockSelectorComponent"
                         }
                     ]
                 },
@@ -7467,23 +7474,23 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
             },
             {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec19-using-ngtemplateoutlet-with-context/example.stories.ts",
+                "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
             },
@@ -7491,7 +7498,7 @@
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts",
+                "file": "src/app/sec19-using-ngtemplateoutlet-with-context/example.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
             },
@@ -7507,17 +7514,17 @@
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts",
+                "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-example></app-example>\r\n      </div>\r\n    `,\r\n})"
             },
             {
                 "name": "Example",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts",
+                "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-example></app-example>\r\n      </div>\r\n    `,\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
             },
             {
                 "name": "Large",
@@ -7595,9 +7602,17 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec05-content-children-and-query-list/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+            },
+            {
+                "name": "Login",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.stories.ts",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
             {
                 "name": "Login",
@@ -7611,17 +7626,9 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec05-content-children-and-query-list/auth-form/auth-form.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
-            },
-            {
-                "name": "Login",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/sec10-platform-agnostic-renderer/auth-form/auth-form.stories.ts",
-                "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
             {
                 "name": "Login",
@@ -7643,7 +7650,7 @@
                 "name": "Login",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.stories.ts",
+                "file": "src/app/sec10-platform-agnostic-renderer/auth-form/auth-form.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
             },
@@ -7802,6 +7809,14 @@
                 "name": "WithTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/sec20-viewencapsulation-and-shadow-dom/example-one.stories.ts",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n   <div>Story Works!</div>\r\n`,\r\n})"
+            },
+            {
+                "name": "WithTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/sec22-custom-attribute-directive/custom-attribute-directive.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n    <input\r\n      appCreditCard\r\n      placeholder=\"Input example\"\r\n    >\r\n`,\r\n})"
@@ -7810,9 +7825,9 @@
                 "name": "WithTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec20-viewencapsulation-and-shadow-dom/example-one.stories.ts",
+                "file": "src/app/sec23-host-listeners/custom-attribute-directive.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n   <div>Story Works!</div>\r\n`,\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n    <input\r\n      appCreditCard\r\n      placeholder=\"Input example\"\r\n    >\r\n`,\r\n})"
             },
             {
                 "name": "WithTemplate",
@@ -7842,9 +7857,17 @@
                 "name": "WithTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec23-host-listeners/custom-attribute-directive.stories.ts",
+                "file": "src/app/sec30-formcontrol-formgroup/formcontrol-formgroup.stories.ts",
                 "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n    <input\r\n      appCreditCard\r\n      placeholder=\"Input example\"\r\n    >\r\n`,\r\n})"
+                "defaultValue": "() => ({\r\n  template: `\r\n   <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
+            },
+            {
+                "name": "WithTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/sec32-binding-formcontrols-select/stock-inventory.stories.ts",
+                "type": "Story",
+                "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
             },
             {
                 "name": "WithTemplate",
@@ -7858,23 +7881,7 @@
                 "name": "WithTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/sec30-formcontrol-formgroup/formcontrol-formgroup.stories.ts",
-                "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n   <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
-            },
-            {
-                "name": "WithTemplate",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/sec33-formarray/stock-inventory.stories.ts",
-                "type": "Story",
-                "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
-            },
-            {
-                "name": "WithTemplate",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/sec32-binding-formcontrols-select/stock-inventory.stories.ts",
                 "type": "Story",
                 "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
             },
@@ -7950,16 +7957,6 @@
                     "defaultValue": "(args: AuthFormComponent) => ({\r\n  component: AuthFormComponent,\r\n  props: args,\r\n})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -7970,14 +7967,14 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
-            "src/app/sec19-using-ngtemplateoutlet-with-context/example.stories.ts": [
+            "src/environments/environment.prod.ts": [
                 {
-                    "name": "Example",
+                    "name": "environment",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/sec19-using-ngtemplateoutlet-with-context/example.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts": [
@@ -7986,6 +7983,16 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/sec18-dynamic-ng-template-rendering-with-ngtemplateoutlet/example.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
+                }
+            ],
+            "src/app/sec19-using-ngtemplateoutlet-with-context/example.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec19-using-ngtemplateoutlet-with-context/example.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
                 }
@@ -8000,16 +8007,6 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
                 }
             ],
-            "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts": [
-                {
-                    "name": "Example",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
-                }
-            ],
             "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts": [
                 {
                     "name": "Example",
@@ -8018,6 +8015,16 @@
                     "file": "src/app/sec16-dynamic-ng-template-rendering-with-view-container-ref/example/example.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-example></app-example>\r\n      </div>\r\n    `,\r\n})"
+                }
+            ],
+            "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec17-passing-context-to-dynamic-ng-template/example/example.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n  <div class=\"app-root\" style=\"padding: 15px;\">\r\n    <app-example></app-example>\r\n  </div>\r\n`,\r\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -8162,14 +8169,24 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
-            "src/app/sec05-content-children-and-query-list/auth-form/auth-form.stories.ts": [
+            "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts": [
                 {
                     "name": "Login",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/sec05-content-children-and-query-list/auth-form/auth-form.stories.ts",
+                    "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
+                }
+            ],
+            "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.stories.ts": [
+                {
+                    "name": "Login",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
             "src/app/sec08-view-child-and-template-ref/auth-form/auth-form.stories.ts": [
@@ -8182,24 +8199,14 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
-            "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts": [
+            "src/app/sec05-content-children-and-query-list/auth-form/auth-form.stories.ts": [
                 {
                     "name": "Login",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/sec07-view-children-and-query-lists/auth-form/auth-form.stories.ts",
+                    "file": "src/app/sec05-content-children-and-query-list/auth-form/auth-form.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form>\r\n            <h3>Create Account</h3>\r\n            <button type=\"submit\">\r\n              Join us\r\n            </button>\r\n          </app-auth-form>\r\n\r\n          <div class=\"verticalLine\"></div>\r\n\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <app-auth-remember (checked)=\"onChecked($event)\"></app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
-                }
-            ],
-            "src/app/sec10-platform-agnostic-renderer/auth-form/auth-form.stories.ts": [
-                {
-                    "name": "Login",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec10-platform-agnostic-renderer/auth-form/auth-form.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
             "src/app/sec11-dynamic-components-with-component-factory-resolver/dynamic-auth-form/auth-form.stories.ts": [
@@ -8222,12 +8229,12 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <app-dynamic-auth-form></app-dynamic-auth-form>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
             ],
-            "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.stories.ts": [
+            "src/app/sec10-platform-agnostic-renderer/auth-form/auth-form.stories.ts": [
                 {
                     "name": "Login",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/sec09-element-ref-and-native-element/auth-form/auth-form.stories.ts",
+                    "file": "src/app/sec10-platform-agnostic-renderer/auth-form/auth-form.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n      <div class=\"app-root\">\r\n        <div>\r\n          <app-auth-form (submitted)=\"onSubmit($event)\">\r\n            <h3>Login</h3>\r\n            <app-auth-remember\r\n              (checked)=\"onChecked($event)\">\r\n            </app-auth-remember>\r\n            <button type=\"submit\">\r\n              Login\r\n            </button>\r\n          </app-auth-form>\r\n        <div>\r\n      </div>\r\n    `,\r\n  props: {\r\n    onChecked: action('onChecked'),\r\n    onSubmit: (e: User) => {\r\n      console.log('Login', e);\r\n    },\r\n  },\r\n})"
                 }
@@ -8340,6 +8347,16 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
                 }
             ],
+            "src/app/sec20-viewencapsulation-and-shadow-dom/example-one.stories.ts": [
+                {
+                    "name": "WithTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec20-viewencapsulation-and-shadow-dom/example-one.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n   <div>Story Works!</div>\r\n`,\r\n})"
+                }
+            ],
             "src/app/sec22-custom-attribute-directive/custom-attribute-directive.stories.ts": [
                 {
                     "name": "WithTemplate",
@@ -8350,14 +8367,14 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n    <input\r\n      appCreditCard\r\n      placeholder=\"Input example\"\r\n    >\r\n`,\r\n})"
                 }
             ],
-            "src/app/sec20-viewencapsulation-and-shadow-dom/example-one.stories.ts": [
+            "src/app/sec23-host-listeners/custom-attribute-directive.stories.ts": [
                 {
                     "name": "WithTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/sec20-viewencapsulation-and-shadow-dom/example-one.stories.ts",
+                    "file": "src/app/sec23-host-listeners/custom-attribute-directive.stories.ts",
                     "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n   <div>Story Works!</div>\r\n`,\r\n})"
+                    "defaultValue": "() => ({\r\n  template: `\r\n    <input\r\n      appCreditCard\r\n      placeholder=\"Input example\"\r\n    >\r\n`,\r\n})"
                 }
             ],
             "src/app/sec24-host-binding/custom-attribute-directive.stories.ts": [
@@ -8390,14 +8407,24 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n   <div>Story Works!</div>\r\n`,\r\n})"
                 }
             ],
-            "src/app/sec23-host-listeners/custom-attribute-directive.stories.ts": [
+            "src/app/sec30-formcontrol-formgroup/formcontrol-formgroup.stories.ts": [
                 {
                     "name": "WithTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/sec23-host-listeners/custom-attribute-directive.stories.ts",
+                    "file": "src/app/sec30-formcontrol-formgroup/formcontrol-formgroup.stories.ts",
                     "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n    <input\r\n      appCreditCard\r\n      placeholder=\"Input example\"\r\n    >\r\n`,\r\n})"
+                    "defaultValue": "() => ({\r\n  template: `\r\n   <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
+                }
+            ],
+            "src/app/sec32-binding-formcontrols-select/stock-inventory.stories.ts": [
+                {
+                    "name": "WithTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/sec32-binding-formcontrols-select/stock-inventory.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
                 }
             ],
             "src/app/sec31-componentizing-formgroups/stock-inventory.stories.ts": [
@@ -8410,32 +8437,12 @@
                     "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
                 }
             ],
-            "src/app/sec30-formcontrol-formgroup/formcontrol-formgroup.stories.ts": [
-                {
-                    "name": "WithTemplate",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec30-formcontrol-formgroup/formcontrol-formgroup.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n   <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
-                }
-            ],
             "src/app/sec33-formarray/stock-inventory.stories.ts": [
                 {
                     "name": "WithTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/sec33-formarray/stock-inventory.stories.ts",
-                    "type": "Story",
-                    "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
-                }
-            ],
-            "src/app/sec32-binding-formcontrols-select/stock-inventory.stories.ts": [
-                {
-                    "name": "WithTemplate",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/sec32-binding-formcontrols-select/stock-inventory.stories.ts",
                     "type": "Story",
                     "defaultValue": "() => ({\r\n  template: `\r\n    <app-stock-inventory></app-stock-inventory>\r\n`,\r\n})"
                 }

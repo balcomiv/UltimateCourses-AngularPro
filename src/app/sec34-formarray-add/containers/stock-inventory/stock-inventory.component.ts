@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Product } from '../../../shared/interfaces/product';
 import { RemovedStock } from '../../components/stock-products/stock-products.component';
 import {
@@ -22,14 +22,31 @@ export class StockInventoryComponent {
   ];
 
   //  Can initiate form up here because it is a static form group
+
+  //  Not using FormBuilder
+  // formManager = new StockFormManager(
+  //   new FormGroup({
+  //     store: new FormGroup({
+  //       branch: new FormControl(''),
+  //       code: new FormControl(''),
+  //     }),
+  //     selector: StockFormManager.createStockFormGroup(),
+  //     stock: new FormArray([
+  //       StockFormManager.createStockFormGroup({ productId: '1', quantity: 10 }),
+  //       StockFormManager.createStockFormGroup({ productId: '3', quantity: 50 }),
+  //     ]),
+  //   })
+  // );
+
+  //  Using FormBuilder
   formManager = new StockFormManager(
-    new FormGroup({
-      store: new FormGroup({
-        branch: new FormControl(''),
-        code: new FormControl(''),
+    this.fb.group({
+      store: this.fb.group({
+        branch: '',
+        code: '',
       }),
       selector: StockFormManager.createStockFormGroup(),
-      stock: new FormArray([
+      stock: this.fb.array([
         StockFormManager.createStockFormGroup({ productId: '1', quantity: 10 }),
         StockFormManager.createStockFormGroup({ productId: '3', quantity: 50 }),
       ]),
@@ -37,6 +54,8 @@ export class StockInventoryComponent {
   );
 
   form = this.formManager.form;
+
+  constructor(private fb: FormBuilder) {}
 
   onAddStock(stock: StockFormValue): void {
     console.log('onAddStock: ', stock);
