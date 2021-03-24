@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Finding && Killing Task on Port
 
-- `netstat -ano | findstr : port 6006`
+- `netstat -ano | findstr 6006`
 - `taskkill /PID 17760 /F`
 
 ## Stackblitz Questions to Answer
