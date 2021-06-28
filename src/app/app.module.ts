@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { TestContainerComponent } from './a-test-stack/containers/test-container/test-container.component';
 import { TestViewComponent } from './a-test-stack/views/test-view/test-view.component';
@@ -16,7 +17,13 @@ import { TestDirective } from './test.directive';
     TestContainerComponent,
     TestViewComponent,
   ], // , TestComponent],
-  imports: [BrowserModule, AppRoutingModule, CommonModule, Sec25ExportAsModule],
+  imports: [
+    ReactiveFormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    Sec25ExportAsModule,
+  ],
   //  providers: [AuthFormComponent],
   bootstrap: [AppComponent],
 })
