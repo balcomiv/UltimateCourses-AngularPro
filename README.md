@@ -60,7 +60,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - `ng g class sec03-projecting-and-binding-to-components/auth-form/auth-form --skip-tests --type stories`
 
 # Links
+## Github Pages && Storybook
 
+- https://dev.to/kouts/deploy-storybook-to-github-pages-3bij
 ## Course Link
 
 - [Ultimate Angular - Pro](https://app.ultimatecourses.com/course/angular-pro/using-ng-content-with-projection-slots)
@@ -73,10 +75,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Story Schematics Link
 
-<!-- - [ngx-schematics-for-storybook](https://github.com/kimamula/ngx-schematics-for-storybook)
-
+<!-- 
+- [ngx-schematics-for-storybook](https://github.com/kimamula/ngx-schematics-for-storybook)
 - `npm i ngx-schematics-for-storybook @storybook/cli --save-dev`
-- `ng generate ngx-schematics-for-storybook:component foo` -->
+- `ng generate ngx-schematics-for-storybook:component foo` 
+-->
 
 <!-- ./node_modules/@angular-devkit/schematics/collection-schema.json -->
 
