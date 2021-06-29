@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Sec25ExportAsModule } from './sec25-export-as/sec25-export-as.module';
 import { TestDirective } from './test.directive';
+import { DemoComponent } from './a-strict-prop-demo/demo/demo.component';
 //  import { TestComponent } from './a-test-stack/services/test/test.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TestDirective } from './test.directive';
     TestDirective,
     TestContainerComponent,
     TestViewComponent,
+    DemoComponent,
   ], // , TestComponent],
   imports: [
     ReactiveFormsModule,
