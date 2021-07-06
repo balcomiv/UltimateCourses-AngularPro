@@ -15,12 +15,12 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<AuthFormComponent> = (args: AuthFormComponent) => ({
+const template: Story<AuthFormComponent> = (args: AuthFormComponent) => ({
   component: AuthFormComponent,
   props: args,
 });
 
-export const Login = () => ({
+export const login = () => ({
   template: `
     <div class="app-root">
       <div>
@@ -43,3 +43,9 @@ export const Login = () => ({
     </div>
   `,
 });
+
+export const testIframeHeight: Story<AuthFormComponent> = template.bind({});
+testIframeHeight.parameters = {
+  docs: { iframeHeight: 300 },
+};
+
